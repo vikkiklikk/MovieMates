@@ -1,11 +1,11 @@
 import "./App.css";
+import Landingpage from "./pages/landingpage";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-red-500">
-        This is a tailwind test. Here is a protection test for the branch.
-      </h1>
+      <h1 className="" >Virkar tailwind??</h1>
+      <Landingpage/>
     </>
   );
 }
