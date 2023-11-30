@@ -1,7 +1,4 @@
-
-//I have to figure out how to add the starbutton correctly
-//import {ReactComponent as StarIcon} from "../assets/icon-favoriteStar.svg" 
-
+import { FaStar } from "react-icons/fa6";
 
 type Props = {
     image:string;
@@ -26,15 +23,14 @@ const MovieCard: React.FC<Props> = ({image, title, genre, direct, cast, item, ad
     }
     // making changes to the color of the favorite star when it is clicked
     const starStyle = {
-        ...isFavorite ? {fill: 'yellow'} : {fill: 'none'}
+        ...isFavorite ? {fill: 'yellow'} : {fill: 'black'}
     }
 
     return (
-        <div className={`w-[10.5rem] h-[15.5rem] rounded-2xl border p-px shadow-lg`}>
-            <div className={`flex justify-start`}>
-                <button className={`border place-self-start`} onClick={handleFavoriteClick}>
-                    <p>click</p>
-                    {/*here I should add <StarIcon style={starStyle}/> */}
+        <div className={`w-[10.5rem] h-[15.5rem] rounded-2xl border p-1 shadow-lg`}>
+            <div className={`flex`}>
+                <button className={`place-self-start`} onClick={handleFavoriteClick}>
+                <FaStar style={starStyle}/>
                 </button>
                 <div className={`flex justify-center`}>
                     <img className={`w-[6.75rem] h-[10rem] rounded-2xl`} src={image} alt="poster" />
