@@ -32,7 +32,7 @@ const MovieCard: React.FC<Props> = ({image, title, genre, direct, cast, item, ad
                 <button className={`place-self-start`} onClick={handleFavoriteClick}>
                 <FaStar style={starStyle}/>
                 </button>
-                <div className={`flex justify-center`}>
+                <div className={`flex justify-center  pl-2`}>
                     <img className={`w-[6.75rem] h-[10rem] rounded-2xl`} src={image} alt="poster" />
                 </div>
             </div>
