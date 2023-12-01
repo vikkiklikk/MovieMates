@@ -1,12 +1,13 @@
 import "./App.css";
-import LandingPage from "./pages/landingpage";
+import VotingProcess from "./pages/VotingProcess";
+
 
 function App() {
   return (
     <>
       <h1>
         This is a tailwind test.
-        <LandingPage/>
+        <VotingProcess/>
       </h1>
     </>
   );
