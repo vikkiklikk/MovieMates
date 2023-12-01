@@ -1,13 +1,16 @@
 import "./App.css";
-import Landingpage from "./pages/landingpage";
+import LandingPage from "./pages/landingpage";
 
 function App() {
   return (
     <>
-      <h1 className="" >Virkar tailwind??</h1>
-      <Landingpage/>
+      <h1>
+        This is a tailwind test.
+        <LandingPage/>
+      </h1>
     </>
   );
 }
 
 export default App;
+
