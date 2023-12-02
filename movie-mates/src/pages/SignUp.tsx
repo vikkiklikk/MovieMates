@@ -10,11 +10,11 @@ function SignUp() {
 
   return (
     <div className="min-h-screen flex flex-col justify-center">
-        <p className="text-[20px] font-bold text-center ">create account</p>
+        <div className="flex flex-col justify-center items-center"><p className="text-[20px] font-bold text-center ">create account</p></div>
       <div className="flex items-center justify-center h-screen flex-col">
     <div className="bg-buttonColor w-[234px] h-[209px] rounded-[66px]">
     {/* Logo with alt text */}
-    <img src={Logo} alt="Logo" className=" justify-center m-auto mt-5"/>
+    <div className="flex flex-col justify-center items-center"><img src={Logo} alt="Logo" className=" justify-center m-auto mt-5"/></div>
 </div>
 <div className="items-center justify-center flex flex-col">
         <form action="" className="space-y-6" mt-4>
