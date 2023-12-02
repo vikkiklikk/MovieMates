@@ -1,3 +1,4 @@
+// I need to add footer and do the carousel
 import MovieCard from "../components/ui/MovieCard";
 import React, {useState, useEffect} from "react";
 import { fetchMovieData } from "../api/api-tmdb";
@@ -32,12 +33,6 @@ const HomeScreen: React.FC = () => {
             setMovies (moviesData.filter((movie): movie is Movie => movie !== null));
         };
         fetchMovies();
-        //const movieTitle ='Inception'; //replace with other titles, here I have to connect api from kvikmyndir
-        //fetchMovieData(movieTitle).then(movie => {
-        //    if (movie) {
-        //        setMovies([movie]);
-            
-      //  });
     }, []); 
 
     return (
