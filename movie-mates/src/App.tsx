@@ -4,9 +4,14 @@ import DropDown from "./components/ui/DropDown";
 function App() {
   return (
     <>
-      <h1>
-        <DropDown/>
-      </h1>
+      <div>
+         <DropDown
+         options={[
+          'val 1',
+          'val 2',
+          'val 3',
+         ]}/>
+      </div>
     </>
   );
 }
