@@ -16,21 +16,22 @@ function SignUp() {
     {/* Logo with alt text */}
     <img src={Logo} alt="Logo" className=" justify-center m-auto mt-5"/>
 </div>
+<div className="items-center justify-center flex flex-col">
         <form action="" className="space-y-6" mt-4>
           <div>
-            <label htmlFor="" className="text-[20px] ">
+            <label htmlFor="email" className="text-[20px] ">
               email
             </label>
             <input type="text" className="bg-greenBox rounded-xl h-[50px] w-[320px]" />
           </div>
           <div>
-            <label htmlFor="" className="text-[20px] ">
+            <label htmlFor="password" className="text-[20px] ">
               password
             </label>
-            <input type="text" className="bg-greenBox rounded-xl h-[50px] w-[320px]]" />
+            <input type="text" className="bg-greenBox rounded-xl h-[50px] w-[320px]" />
           </div>
           <div>
-            <label htmlFor="" className="text-[20px] ">
+            <label htmlFor="username" className="text-[20px] ">
               username
             </label>
             <input type="text" className=" bg-greenBox rounded-xl h-[50px] w-[320px]" />
@@ -40,6 +41,7 @@ function SignUp() {
               <div className="justify-center w-full flex items-center "> <BigButton title={button.title} /></div>
             ))}
         </form>
+        </div>
       </div>
     </div>
   );
