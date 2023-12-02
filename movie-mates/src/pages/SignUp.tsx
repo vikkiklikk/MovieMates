@@ -21,25 +21,24 @@ function SignUp() {
             <label htmlFor="" className="text-[20px] ">
               email
             </label>
-            <input type="text" className="w-full p-2 border bg-greenBox rounded-xl h-[50px]" />
+            <input type="text" className="bg-greenBox rounded-xl h-[50px] w-[320px]" />
           </div>
           <div>
             <label htmlFor="" className="text-[20px] ">
               password
             </label>
-            <input type="text" className="w-full p-2 border bg-greenBox rounded-xl h-[50px]" />
+            <input type="text" className="bg-greenBox rounded-xl h-[50px] w-[320px]]" />
           </div>
           <div>
             <label htmlFor="" className="text-[20px] ">
               username
             </label>
-            <input type="text" className="w-full p-2 border bg-greenBox rounded-xl h-[50px]" />
+            <input type="text" className=" bg-greenBox rounded-xl h-[50px] w-[320px]" />
           </div>
-          <div>
+        
             {buttons.map((button) => (
-              <div className=""> <BigButton title={button.title} /></div>
+              <div className="justify-center w-full flex items-center "> <BigButton title={button.title} /></div>
             ))}
-          </div>
         </form>
       </div>
     </div>
