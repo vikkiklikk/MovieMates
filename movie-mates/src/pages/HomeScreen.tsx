@@ -1,11 +1,14 @@
 import MovieCard from "../components/ui/MovieCard";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { fetchMovieData } from "../api/api-tmdb";
+import { Movie } from "../types";
 import { IoIosSearch } from "react-icons/io";
 import { HiOutlineAdjustmentsVertical } from "react-icons/hi2";
 
 
 const HomeScreen: React.FC = () => {
 
+    //making the favorite button function correctly
     const [favorites, setFavorites] = useState<string[]>([]);
 
     const addFavorite = (item: string) => {
@@ -16,65 +19,16 @@ const HomeScreen: React.FC = () => {
         setFavorites ((prevFavorites) => prevFavorites.filter((favorite) => favorite !== item));
     };
 
-    const cards = [
-        {
-        //here comes the info from omdb
-            Title: 'The Hunger Games: The Ballad of Songbirds and Snakes',
-            Director: 'Some guy',
-            Starring: 'One guy, another guy, and a woman',
-            Genre: 'Thriller - Drama',
-            imdbID: 'tt10545296',
-            Poster: 'https://m.media-amazon.com/images/M/MV5BOTZmMmY2MzctMjU2Yy00YjJlLTk1NjAtY2U4MmMxOWZkZWY4XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg',
-            id: 0,
-        },
-        {
-            Title: "Captain Marvel",
-            Director: 'Director dude',
-            Starring: 'A lot of strong people',
-            Genre: 'Thriller - Action',
-            imdbID: 'tt4154664',
-            Poster: 'https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_SX300.jpg',
-            id: 1,
-        },
-        {
-            //here comes the info from omdb
-                Title: 'The Hunger Games: The Ballad of Songbirds and Snakes',
-                Director: 'Some guy',
-                Starring: 'One guy, another guy, and a woman',
-                Genre: 'Thriller - Drama',
-                imdbID: 'tt10545296',
-                Poster: 'https://m.media-amazon.com/images/M/MV5BOTZmMmY2MzctMjU2Yy00YjJlLTk1NjAtY2U4MmMxOWZkZWY4XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg',
-                id: 2,
-            },
-            {
-                Title: "Captain Marvel",
-                Director: 'Director dude',
-                Starring: 'A lot of strong people',
-                Genre: 'Thriller - Action',
-                imdbID: 'tt41546643',
-                Poster: 'https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_SX300.jpg',
-                id: 3,
-            },
-            {
-                //here comes the info from omdb
-                    Title: 'The Hunger Games: The Ballad of Songbirds and Snakes',
-                    Director: 'Some guy',
-                    Starring: 'One guy, another guy, and a woman',
-                    Genre: 'Thriller - Drama',
-                    imdbID: 'tt10545296',
-                    Poster: 'https://m.media-amazon.com/images/M/MV5BOTZmMmY2MzctMjU2Yy00YjJlLTk1NjAtY2U4MmMxOWZkZWY4XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg',
-                    id: 4,
-                },
-                {
-                    Title: "Captain Marvel",
-                    Director: 'Director dude',
-                    Starring: 'A lot of strong people',
-                    Genre: 'Thriller - Action',
-                    imdbID: 'tt41546645',
-                    Poster: 'https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_SX300.jpg',
-                    id: 5,
-                },
-    ]
+    const [movies, setMovies] = useState<Movie[]>([]);
+
+    useEffect(() => {
+        const movieTitle = 'Inception'; //replace with other titles, here I have to connect api from kvikmyndir
+        fetchMovieData(movieTitle).then(movie => {
+            if (movie) {
+                setMovies([movie]);
+            }
+        });
+    }, []); 
 
     return (
         <div>
@@ -90,20 +44,16 @@ const HomeScreen: React.FC = () => {
             </div>
             <div className={`flex justify-center`}>
                 <div className={`grid grid-cols-2 gap-4`}>
-                    {cards.map ((card) =>{
-                        return <MovieCard
-                        image={card.Poster}
-                        title={card.Title}
-                        genre={card.Genre}
-                        direct={card.Director}
-                        cast={card.Starring}
-                        item={card.imdbID}
-                        key={card.id}
-                        addFavorite={() => addFavorite (card.imdbID)}
-                        removeFavorite={() => removeFavorite(card.imdbID)}
-                        isFavorite={favorites.includes(card.imdbID)}
+                    {movies.map (movie =>(
+                        <MovieCard
+                        key={movie.imdbID}
+                        movie={movie}
+                        item={movie.imdbID}
+                        addFavorite={() => addFavorite (movie.imdbID)}
+                        removeFavorite={() => removeFavorite(movie.imdbID)}
+                        isFavorite={favorites.includes(movie.imdbID)}
                         />
-                    })}
+                    ))}
                 </div>
             </div>
         </div>    

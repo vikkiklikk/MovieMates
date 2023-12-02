@@ -1,18 +1,16 @@
 import { FaStar } from "react-icons/fa6";
+import React from "react";
+import { Movie } from "../../types";
 
-type Props = {
-    image:string;
-    title:string;
-    genre:string;
-    direct:string;
-    cast:string;
+interface MovieCardProps  {
+    movie: Movie;
     item:string;
     addFavorite: (item: string) => void;
     removeFavorite: (item: string) => void;
     isFavorite: boolean;
 } 
 
-const MovieCard: React.FC<Props> = ({image, title, genre, direct, cast, item, addFavorite, removeFavorite, isFavorite}) => {
+const MovieCard: React.FC<MovieCardProps> = ({movie, item, addFavorite, removeFavorite, isFavorite}) => {
     // the favorite function for the favorite button
     const handleFavoriteClick = () => {
         if (isFavorite) {
@@ -33,14 +31,14 @@ const MovieCard: React.FC<Props> = ({image, title, genre, direct, cast, item, ad
                 <FaStar style={starStyle}/>
                 </button>
                 <div className={`flex justify-center  pl-2`}>
-                    <img className={`w-[6.75rem] h-[10rem] rounded-2xl`} src={image} alt="poster" />
+                    <img className={`w-[6.75rem] h-[10rem] rounded-2xl`} src={movie.posterPath} alt={movie.title} />
                 </div>
             </div>
             <div className={`flex flex-col gap-y-0.5 py-1`}>
-                <h2 className={`text-sm font-medium whitespace-nowrap overflow-hidden overflow-ellipsis`}>{title}</h2>
-                <p className={`text-[0.5rem]`}>{genre}</p>
-                <p className={`text-xs whitespace-nowrap overflow-hidden overflow-ellipsis`}>Director: {direct}</p>
-                <p className={`text-xs whitespace-nowrap overflow-hidden overflow-ellipsis`}>Starring: {cast}</p>
+                <h2 className={`text-sm font-medium whitespace-nowrap overflow-hidden overflow-ellipsis`}>{movie.title}</h2>
+                <p className={`text-[0.5rem]`}>{movie.genres.join(',')}</p>
+                <p className={`text-xs whitespace-nowrap overflow-hidden overflow-ellipsis`}>Director: {movie.director}</p>
+                <p className={`text-xs whitespace-nowrap overflow-hidden overflow-ellipsis`}>Starring: {movie.cast.join(',')}</p>
             </div>
         </div>
     )
