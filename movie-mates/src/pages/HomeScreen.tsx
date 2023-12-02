@@ -21,13 +21,23 @@ const HomeScreen: React.FC = () => {
 
     const [movies, setMovies] = useState<Movie[]>([]);
 
+    //here are all the titles of the movies - would connect the API from kvikmyndir here
+    //but for now it's just manually put in
+    const movieTitles: string[] = ['Dans drottningin', 'Anatomy of a fall', 'Heimaleikurinn', 'The night of the 12th', 'The Marvels','Joy Ride', 'The Creator', 'Tilverur', 'The last voyage of demeter', 'The Hunger Games: The Ballad of Songbirds & Snakes'];
+
     useEffect(() => {
-        const movieTitle = 'Inception'; //replace with other titles, here I have to connect api from kvikmyndir
-        fetchMovieData(movieTitle).then(movie => {
-            if (movie) {
-                setMovies([movie]);
-            }
-        });
+        const fetchMovies = async () => {
+            const moviePromises = movieTitles.map(title => fetchMovieData(title));
+            const moviesData = await Promise.all(moviePromises);
+            setMovies (moviesData.filter((movie): movie is Movie => movie !== null));
+        };
+        fetchMovies();
+        //const movieTitle ='Inception'; //replace with other titles, here I have to connect api from kvikmyndir
+        //fetchMovieData(movieTitle).then(movie => {
+        //    if (movie) {
+        //        setMovies([movie]);
+            
+      //  });
     }, []); 
 
     return (
