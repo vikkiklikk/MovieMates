@@ -10,30 +10,34 @@ function SignUp() {
 
   return (
     <div className="min-h-screen flex flex-col justify-center">
-      <div className="mx-auto w-[320px] h-[50px]">
-        <div className=" bg-buttonColor w-[234] h-[209]"> <img src={Logo} alt="Logo"/></div>
-        <form action="" className="space-y-6">
+        <p className="text-[20px] font-bold text-center ">create account</p>
+      <div className="flex items-center justify-center h-screen flex-col">
+    <div className="bg-buttonColor w-[234px] h-[209px] rounded-[66px]">
+    {/* Logo with alt text */}
+    <img src={Logo} alt="Logo" className=" justify-center m-auto mt-5"/>
+</div>
+        <form action="" className="space-y-6" mt-4>
           <div>
             <label htmlFor="" className="text-[20px] ">
-              Email
+              email
             </label>
-            <input type="text" className="w-full p-2 border bg-greenBox" />
+            <input type="text" className="w-full p-2 border bg-greenBox rounded-xl h-[50px]" />
           </div>
           <div>
             <label htmlFor="" className="text-[20px] ">
-              Password
+              password
             </label>
-            <input type="text" className="w-full p-2 border bg-greenBox" />
+            <input type="text" className="w-full p-2 border bg-greenBox rounded-xl h-[50px]" />
           </div>
           <div>
             <label htmlFor="" className="text-[20px] ">
-              Username
+              username
             </label>
-            <input type="text" className="w-full p-2 border bg-greenBox" />
+            <input type="text" className="w-full p-2 border bg-greenBox rounded-xl h-[50px]" />
           </div>
           <div>
             {buttons.map((button) => (
-              <BigButton title={button.title} />
+              <div className=""> <BigButton title={button.title} /></div>
             ))}
           </div>
         </form>
