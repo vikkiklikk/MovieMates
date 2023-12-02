@@ -11,8 +11,11 @@ export default {
       buttonHover: '#011627',
       textColor: '#FCFCFC',
       green: '#C4EBC8',
-      white: '#F5F5F5',
-      lightText: '#86A5D9'
+      lighBackground: '#F5F5F5',
+      lightText: '#86A5D9',
+      white: '#FFFFFF',
+      lightGrey: '"D9D9D9'
+
     },
   },
   plugins: [],

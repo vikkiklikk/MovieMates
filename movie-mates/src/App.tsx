@@ -1,12 +1,12 @@
 import "./App.css";
-import LandingPage from "./pages/landingpage";
+import Login from "./pages/LoginScreen";
 
 function App() {
   return (
     <>
       <h1>
         This is a tailwind test.
-        <LandingPage/>
+        <Login/>
       </h1>
     </>
   );
