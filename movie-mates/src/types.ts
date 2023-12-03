@@ -6,5 +6,6 @@ export interface Movie {
     cast: string[];
     genres: string[];
     imdbID: string;
+    overview: string;
   }
   

@@ -10,21 +10,21 @@ import { HiOutlineAdjustmentsVertical } from "react-icons/hi2";
 const HomeScreen: React.FC = () => {
 
     //making the favorite button function correctly
-    const [favorites, setFavorites] = useState<string[]>([]);
+   // const [favorites, setFavorites] = useState<string[]>([]);
 
-    const addFavorite = (item: string) => {
-        setFavorites((prevFavorites) => [...prevFavorites, item]);
-    };
+   // const addFavorite = (item: string) => {
+   //     setFavorites((prevFavorites) => [...prevFavorites, item]);
+   // };
 
-    const removeFavorite = (item: string) => {
-        setFavorites ((prevFavorites) => prevFavorites.filter((favorite) => favorite !== item));
-    };
+   // const removeFavorite = (item: string) => {
+   //     setFavorites ((prevFavorites) => prevFavorites.filter((favorite) => favorite !== item));
+   // };
 
     const [movies, setMovies] = useState<Movie[]>([]);
 
     //here are all the titles of the movies - would connect the API from kvikmyndir here
     //but for now it's just manually put in
-    const movieTitles: string[] = ['Dans drottningin', 'Anatomy of a fall', 'Heimaleikurinn', 'The night of the 12th', 'The Marvels','Joy Ride', 'The Creator', 'Tilverur', 'The last voyage of demeter', 'The Hunger Games: The Ballad of Songbirds & Snakes'];
+    const movieTitles: string[] = [ 'Anatomy of a fall', 'Heimaleikurinn', 'The night of the 12th', 'The Marvels','Joy Ride', 'The Creator', 'Tilverur', 'The last voyage of demeter', 'The Hunger Games: The Ballad of Songbirds & Snakes', 'Napoleon'];
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -53,10 +53,10 @@ const HomeScreen: React.FC = () => {
                         <MovieCard
                         key={movie.imdbID}
                         movie={movie}
-                        item={movie.imdbID}
-                        addFavorite={() => addFavorite (movie.imdbID)}
-                        removeFavorite={() => removeFavorite(movie.imdbID)}
-                        isFavorite={favorites.includes(movie.imdbID)}
+                       // item={movie.imdbID}
+                       // addFavorite={() => addFavorite (movie.imdbID)}
+                       // removeFavorite={() => removeFavorite(movie.imdbID)}
+                       // isFavorite={favorites.includes(movie.imdbID)}
                         />
                     ))}
                 </div>
