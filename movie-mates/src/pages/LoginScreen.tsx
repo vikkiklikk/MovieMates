@@ -10,7 +10,7 @@ function Login() {
   return (
     <div className="flex items-center justify-center h-screen flex-col">
       <div> 
-        <p className="font-bold"> log into your account</p>
+        <p className=""> log into your account</p>
       </div>
     <div className=" bg-buttonColor  w-[234px] h-[209px] rounded-[66px]">
     <img src={Logo} alt="Logo" className=" justify-center m-auto mt-5"/>
@@ -31,7 +31,7 @@ function Login() {
 
 
         <div className="flex flex-col">
-  <label htmlFor="password" className="mb-1">Password</label>
+  <label htmlFor="password" className="mb-1">password</label>
   <input
     type="password"
     id="password"
