@@ -9,8 +9,8 @@ function Login() {
 
   return (
     <div className="flex items-center justify-center h-screen flex-col">
-      <div> 
-        <p className=""> log into your account</p>
+      <div  className="font-bold text-center mt-10"> 
+        <p> log into your account</p>
       </div>
     <div className=" bg-buttonColor  w-[234px] h-[209px] rounded-[66px]">
     <img src={Logo} alt="Logo" className=" justify-center m-auto mt-5"/>

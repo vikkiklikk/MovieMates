@@ -22,7 +22,7 @@ return (
 
       {/* Buttons */}
       {buttons.map((button) => (
-       <div className="justify-center w-full flex items-center p-2"> <BigButton title={button.title} key={button.title}/></div>
+       <div className="item-center absolute bottom-7"> <BigButton title={button.title} key={button.title}/></div>
       ))}
       
       <p className="absolute bottom-7 underline text-[14px] ">Already a member?</p>

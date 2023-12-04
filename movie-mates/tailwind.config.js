@@ -13,9 +13,12 @@ export default {
       green: '#C4EBC8',
       lighBackground: '#F5F5F5',
       lightText: '#86A5D9',
-      white: '#FFFFFF',
-      lightGrey: '"D9D9D9'
-
+      lightGrey: '"D9D9D9',
+      greenBox: '#C4EBC8',
+      textColorDark: '#282828',
+      dropDown: '#C4EBC8',
+      lightText: '#86A5D9',
+      white: '#F5F5F5',
     },
   },
   plugins: [],
