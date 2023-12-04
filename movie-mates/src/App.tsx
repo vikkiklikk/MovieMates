@@ -1,14 +1,28 @@
 import "./App.css";
 import VotingProcess from "./pages/VotingProcess";
 
+import Login from "./pages/LoginScreen";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeScreen from "./pages/HomeScreen";
+import SelectedMovie from "./components/SelectedPage";
+import ShowtimesPage from "./components/ShowtimesPage";
 
-function App() {
+
+
+const App: React.FC = () => {
+
   return (
     <>
-      <h1>
-        This is a tailwind test.
-        <VotingProcess/>
-      </h1>
+    <VotingProcess/>
+    <Login/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeScreen/>}/>
+        <Route path="/movie/:title" element={<SelectedMovie/>}/>
+        <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
+      </Routes>
+    </Router>
     </>
   );
 }
