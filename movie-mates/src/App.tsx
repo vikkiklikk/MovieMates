@@ -1,4 +1,5 @@
 import "./App.css";
+import Login from "./pages/LoginScreen";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from "./pages/HomeScreen";
@@ -11,6 +12,7 @@ const App: React.FC = () => {
 
   return (
     <>
+    <Login/>
     <Router>
       <Routes>
         <Route path="/" element={<HomeScreen/>}/>
