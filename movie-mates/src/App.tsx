@@ -18,7 +18,6 @@ const App: React.FC = () => {
         <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
       </Routes>
     </Router>
-    
     </>
   );
 }
