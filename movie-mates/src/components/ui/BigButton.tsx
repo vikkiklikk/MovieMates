@@ -15,14 +15,14 @@ const BigButton: React.FC<Props> = ({title}) => {
 
 export default BigButton;
 
-// to use this button:
-
+/ to use this button:
+//import BigButton from "./components/ui/BigButton"; (change to correct path)
 // const buttons = [
 //    {title: "Your text"},
 //   ]
-
-//  AND
-
+// if you want another button you add here above
+// {title: "Another button, your text"},
+//  AND in the return
 // {buttons.map((button)=>{
 //    return <BigButton title={button.title}></BigButton>
 // })}

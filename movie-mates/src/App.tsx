@@ -1,19 +1,17 @@
 import "./App.css";
-import DropDown from "./components/ui/DropDown";
+import LandingPage from "./pages/landingpage";
 
 function App() {
+
   return (
     <>
-      <div>
-         <DropDown
-         options={[
-          'val 1',
-          'val 2',
-          'val 3',
-         ]}/>
-      </div>
+      <h1>
+        This is a tailwind test.
+        <LandingPage/>
+      </h1>
     </>
   );
 }
 
 export default App;
+
