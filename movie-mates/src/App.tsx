@@ -1,14 +1,24 @@
 import "./App.css";
-import LandingPage from "./pages/landingpage";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeScreen from "./pages/HomeScreen";
+import SelectedMovie from "./components/SelectedPage";
+import ShowtimesPage from "./components/ShowtimesPage";
 
-function App() {
+
+
+const App: React.FC = () => {
 
   return (
     <>
-      <h1>
-        This is a tailwind test.
-        <LandingPage/>
-      </h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeScreen/>}/>
+        <Route path="/movie/:title" element={<SelectedMovie/>}/>
+        <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
+      </Routes>
+    </Router>
+    
     </>
   );
 }

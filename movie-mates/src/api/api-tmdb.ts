@@ -42,6 +42,7 @@ export const fetchMovieData = async (title: string): Promise<Movie | null> => {
             cast,
             genres,
             imdbID: movieId.toString(),
+            overview: movieDetails.overview,
           };
     } catch (error) {
         console.error('Error fetching data:', error);
