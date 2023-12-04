@@ -4,15 +4,12 @@ import { Movie } from "../../types";
 import { Link } from "react-router-dom";
 import useFavorites from "../../hooks/useFavorites";
 
+// I take Movie from types.ts, there are the props I need
 interface MovieCardProps  {
     movie: Movie;
-   // item:string;
-    //addFavorite: (item: string) => void;
-    //removeFavorite: (item: string) => void;
-    //isFavorite: boolean;
 } 
 
-const MovieCard: React.FC<MovieCardProps> = ({movie, }) => {
+const MovieCard: React.FC<MovieCardProps> = ({movie }) => {
     // the favorite function for the favorite button
     const { addFavorite, removeFavorite, isFavorite} = useFavorites();
     const favorite = isFavorite(movie.imdbID);

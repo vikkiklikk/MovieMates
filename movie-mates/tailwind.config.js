@@ -10,6 +10,7 @@ export default {
       buttonColor: 'rgba(1, 22, 39, 0.8)',
       buttonHover: '#011627',
       textColor: '#FCFCFC',
+      textColorDark: '#282828',
     },
   },
   plugins: [],

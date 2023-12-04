@@ -6,6 +6,7 @@ import { FaStar, FaArrowLeft } from "react-icons/fa6";
 import useFavorites from '../hooks/useFavorites';
 import BigButton from './ui/BigButton';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const SelectedMovie: React.FC = () => {
   const [movie, setMovie] = useState<Movie | null>(null);
@@ -26,6 +27,9 @@ const SelectedMovie: React.FC = () => {
   const navigate = useNavigate();
    const handleBackClick = () => {
     navigate(-1);
+   };
+   const goToShowtimesPage = () => {
+    navigate ('/movie/&{title}/Showtimes');
    };
 
   const { addFavorite, removeFavorite, isFavorite} = useFavorites();
@@ -55,40 +59,41 @@ const SelectedMovie: React.FC = () => {
 
   return (
     <div>
-        <div className='mt-7 flex justify-between px-7'>
-            <FaArrowLeft onClick={handleBackClick}/>
-            <button onClick={handleFavoriteClick}>
-                <FaStar style={starStyle}/>
-            </button>
+        <div className='pb-16'>
+            <div className='mt-7 flex justify-between px-7'>
+                <FaArrowLeft onClick={handleBackClick}/>
+                <button onClick={handleFavoriteClick}>
+                    <FaStar style={starStyle}/>
+                </button>
+            </div>
+            <div className='mt-7 flex justify-center'>
+                <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title} />
+            </div>
+            <div className='mt-5 px-7 flex flex-col gap-3'>
+                <h2 className='text-xl font-semibold '>{movie.title}</h2>
+                <div>
+                    <h4 className='text-sm'>Genre</h4>
+                    <h5 className='text-base'>{movie.genres}</h5>
+                </div>
+                <div>
+                    <h4 className='text-sm'>Director</h4>
+                    <h3 className='text-base'>{movie.director}</h3>
+                </div>
+                <div>
+                    <h4 className='text-sm'>Starring</h4>
+                    <h3 className='text-base'>{movie.cast}</h3>
+                </div>
+                <div>
+                    <h4 className='text-sm'>Description</h4>
+                    <h3 className='text-base'>{movie.overview}</h3>
+                </div>
+                <div className='pt-4'>
+                    {buttons.map((button)=>{
+                        return <BigButton key={button.title} title={button.title} onClick={goToShowtimesPage}></BigButton>})}
+                </div>
+            </div>
         </div>
-        <div className='mt-7 flex justify-center'>
-            <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title} />
-        </div>
-        <div className='mt-5 px-7 flex flex-col gap-2'>
-            <h2 className='text-xl font-semibold '>{movie.title}</h2>
-            <div>
-                <h4 className='text-sm'>Genre</h4>
-                <h5 className='text-base'>{movie.genres}</h5>
-            </div>
-            <div>
-                <h4 className='text-sm'>Director</h4>
-                <h3 className='text-base'>{movie.director}</h3>
-            </div>
-            <div>
-                <h4 className='text-sm'>Starring</h4>
-                <h3 className='text-base'>{movie.cast}</h3>
-            </div>
-            <div>
-                <h4 className='text-sm'>Description</h4>
-                <h3 className='text-base'>{movie.overview}</h3>
-            </div>
-            <div>
-                {buttons.map((button)=>{
-                    return <BigButton key={button.title} title={button.title}></BigButton>})}
-            </div>
-        </div>
-      
-      
+        <Footer/>
     </div>
   );
 };
