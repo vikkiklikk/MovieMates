@@ -1,12 +1,26 @@
 import "./App.css";
-import SignUp from "./pages/SignUp";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeScreen from "./pages/HomeScreen";
+import SelectedMovie from "./components/SelectedPage";
+import ShowtimesPage from "./components/ShowtimesPage";
 
-function App() {
+
+
+const App: React.FC = () => {
+
   return (
     <>
-    <SignUp/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeScreen/>}/>
+        <Route path="/movie/:title" element={<SelectedMovie/>}/>
+        <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
+      </Routes>
+    </Router>
     </>
   );
 }
 
 export default App;
+
