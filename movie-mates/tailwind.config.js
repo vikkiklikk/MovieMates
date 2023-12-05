@@ -19,6 +19,7 @@ export default {
       dropDown: '#C4EBC8',
       lightText: '#86A5D9',
       white: '#F5F5F5',
+      boxHover: 'rgba(234, 113, 1, 0.51)'
     },
   },
   plugins: [],
