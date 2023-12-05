@@ -4,7 +4,15 @@ function DropDown() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
-  const options = ['Val 1', 'Val 2', 'Val 3'];
+  const options = [
+    "Smárabíó",
+    "Sambíó Kringlunni",
+    "Sambíó Egillshöll",
+    "Sambíó Keflavík",
+    "Sambíó Akureyri",
+    "Laugarásbíó",
+    "Bíó Paradís"
+  ];
 
   return (
     <div>
@@ -15,14 +23,15 @@ function DropDown() {
           id="velja"
           className={`w-[320px] h-[47px] rounded-xl bg-dropDown ${
             isExpanded ? 'bg-white py-1' : ''
-          }`}
+          } outline-none`}
           onClick={() => setIsExpanded(!isExpanded)}
           onChange={(e) => setSelectedValue(e.target.value)}
           onBlur={() => setIsExpanded(false)}
           value={selectedValue}
+          style={{ fontSize: '16px', padding: '10px' }} // Adjust the font size and padding as needed
         >
           <option value="" disabled>
-            Takki
+            Select an option
           </option>
           {options.map((opt) => (
             <option key={opt} value={opt}>
@@ -36,3 +45,4 @@ function DropDown() {
 }
 
 export default DropDown;
+

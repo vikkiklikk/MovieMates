@@ -15,6 +15,7 @@ const VotingProcess = () => {
 
         <div>
           <DropDown/>
+          
         </div>
         {/* Add the footer here */}
         <div className="justify-center flex pt-10"> <SmallButton title="Submit" /></div>
