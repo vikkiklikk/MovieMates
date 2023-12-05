@@ -21,8 +21,7 @@ const ShowtimesPage: React.FC = () => {
 
     const navigateToBuyTickets = () => {
         if (selectedShowtime) {
-            navigate(`/buytickets/${selectedShowtime.time}/${selectedShowtime.room}`);
-            // Or use state to pass the selectedShowtime object
+            navigate(`/movie/&{movieTitle}/tickets/${selectedShowtime.time}/${selectedShowtime.room}`);
         } else {
             // Handle the case where no showtime is selected
         }
@@ -31,7 +30,6 @@ const ShowtimesPage: React.FC = () => {
     const navigateToVoting = () => {
         if (selectedShowtime) {
             navigate(`/movie/:title/voting/${selectedShowtime.time}/${selectedShowtime.room}`);
-            // Or use state to pass the selectedShowtime object
         } else {
             // Handle the case where no showtime is selected
         }
