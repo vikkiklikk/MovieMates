@@ -8,15 +8,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from "./pages/HomeScreen";
 import SelectedMovie from "./components/SelectedPage";
 import ShowtimesPage from "./components/ShowtimesPage";
-import DropDownTime from "./components/DropdownTime";
 
 const App: React.FC = () => {
 
   return (
-    <>
-    <DropDownTime/>
-    <Router>
-      <Routes>
+  <>
+    <VotingProcess/>
+ {/*    <Router>
+        <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/login" element={<Login/>}/>
@@ -25,8 +24,8 @@ const App: React.FC = () => {
         <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
         <Route path="/movie/:title/voting" element={<VotingProcess/>}/>
       </Routes>
-    </Router>
-    </>
+  </Router>*/}
+</>
   );
 }
 
