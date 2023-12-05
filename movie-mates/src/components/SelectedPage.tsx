@@ -70,7 +70,7 @@ const SelectedMovie: React.FC = () => {
                 <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title} />
             </div>
             <div className='mt-5 px-7 flex flex-col gap-3'>
-                <h2 className='text-xl font-semibold '>{movie.title}</h2>
+                <h2 className='text-xl font-bold '>{movie.title}</h2>
                 <div>
                     <h4 className='text-sm'>Genre</h4>
                     <h5 className='text-base'>{movie.genres}</h5>
