@@ -1,18 +1,16 @@
 type Props = {
     title:string
     onClick: () => void;
-}
-const BigButton: React.FC<Props> = ({title, onClick}) => {
-    
+};
 
+const BigButton: React.FC<Props> = ({title, onClick}) => {
     
     return (
         <>
             <button className="rounded-2xl h-12 w-[21.75rem] text-xl text-textColor bg-buttonColor hover:bg-buttonHover" onClick={onClick}>{title}</button>
         </>
-    )
-
-}
+    );
+};
 
 export default BigButton;
 
