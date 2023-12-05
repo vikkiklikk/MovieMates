@@ -9,11 +9,14 @@ import HomeScreen from "./pages/HomeScreen";
 import SelectedMovie from "./components/SelectedPage";
 import ShowtimesPage from "./components/ShowtimesPage";
 import VotingShowtimeContainer from "./components/VotingShowtimeContainer";
+import DropDownTime from "./components/DropDownTime";
+
 const App: React.FC = () => {
 
   return (
     <>
     <VotingShowtimeContainer/>
+    <DropDownTime/>
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
