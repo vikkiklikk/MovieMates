@@ -57,12 +57,11 @@ const ShowtimesPage: React.FC = () => {
                 <div className="flex justify-center text-xl font-bold ">
                     <p>Title of the movie</p>
                 </div>
-                <div className="flex justify-center">
+                <div className="my-5 flex justify-center">
                     <p>here come the dates</p>
                 </div>
-                
                 <TheaterContainer onSelectShowtime={handleSelectedShowtime} />
-                <div className="flex justify-between">
+                <div className=" mt-7 flex justify-between">
                     {Buttons.map((button)=>{
                         return <SmallButton key={button.title} title={button.title} onClick={button.onclick} ></SmallButton>
                     })}
