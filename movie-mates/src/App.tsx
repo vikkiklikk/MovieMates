@@ -8,13 +8,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from "./pages/HomeScreen";
 import SelectedMovie from "./components/SelectedPage";
 import ShowtimesPage from "./components/ShowtimesPage";
-import VotingShowtimeContainer from "./components/VotingShowtimeContainer";
+import DropDownTime from "./components/DropdownTime";
 
 const App: React.FC = () => {
 
   return (
     <>
-    <VotingShowtimeContainer/>
+    <DropDownTime/>
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
