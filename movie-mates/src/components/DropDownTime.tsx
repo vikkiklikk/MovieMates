@@ -1,47 +1,59 @@
-import React, { useState } from 'react';
-import VotingShowtimeContainer from './VotingShowtimeContainer';
+import React, { useState } from "react";
+import BoxShowtime from "./BoxShowtime";
 
-function DropDownTime() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
-    const options = [];
+const DropDownTime: React.FC<{onSelectShowtime: (time: string, room: string) => void}> = ({onSelectShowtime}) => {
+    const [selectedShowtime, setSelectedShowtime] = useState<{time: string, room: string} | null>(null);
 
-  const handleSelectShowtime = (time, room) => {
-    // Handle the selected showtime
-    console.log(`Selected showtime: ${time} in room ${room}`);
-  };
+    const showtimes = [
+        {time:"18:00", room: "Salur 1"},
+        {time:"20:00", room: "Salur 1"},
+        {time:"22:00", room: "Lúxus VIP"},
+        {time:"22:20", room: "Salur 2"},
+    ];
 
-  return (
-    <div>
-      <div>
-        <div><label htmlFor="velja" className="">Movie</label></div>
-        <select
-          name="velja"
-          id="velja"
-          className={`w-[320px] h-[47px] rounded-xl bg-dropDown ${
-            isExpanded ? 'bg-white py-1' : ''
-          }`}
-          onClick={() => setIsExpanded(!isExpanded)}
-          onChange={(e) => setSelectedValue(e.target.value)}
-          onBlur={() => setIsExpanded(false)}
-          value={selectedValue}
-        >
-            {/*here is the dropdown menu*/}
-          <option value="" disabled></option>
-          {options.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
-      </div>
+    const handleSelectedShowtime = (time: string, room: string) => {
+        setSelectedShowtime({ time, room });
+        onSelectShowtime(time, room);
+    };
 
-      {/* Include the VotingShowtimeContainer component */}
-      {isExpanded && (
-        <VotingShowtimeContainer onSelectShowtime={handleSelectShowtime} />
-      )}
-    </div>
-  );
-}
+    return (
+        <div className="flex flex-col items-center">
+            <div className="w-[21.75rem]">
+                <div className="flex justify-center w-[21.75rem] h-auto border border-[#D9D9D9] shadow-md rounded-2xl">
+                    {/* Dropdown Menu */}
+                    <select
+                        className="w-full p-2"
+                        value={selectedShowtime ? `${selectedShowtime.time}-${selectedShowtime.room}` : ""}
+                        onChange={(e) => {
+                            const [time, room] = e.target.value.split("-");
+                            handleSelectedShowtime(time, room);
+                        }}
+                    >
+                        <option value="" disabled>Select a showtime</option>
+                        {showtimes.map((showtime, index) => (
+                            <option
+                                key={`${showtime.time}-${showtime.room}-${index}`}
+                                value={`${showtime.time}-${showtime.room}`}
+                            >
+                                {`${showtime.time} - ${showtime.room}`}
+                            </option>
+                        ))}
+                    </select>
+
+                    {/* Display selected showtime */}
+                    {selectedShowtime && (
+                        <div className="mt-4">
+                            <BoxShowtime
+                                time={selectedShowtime.time}
+                                room={selectedShowtime.room}
+                                onSelect={onSelectShowtime}
+                            />
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default DropDownTime;
