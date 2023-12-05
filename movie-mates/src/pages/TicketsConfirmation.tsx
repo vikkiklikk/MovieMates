@@ -53,12 +53,14 @@ const TicketsConfirmation: React.FC = () => {
                 <div>
                     <FaArrowLeft onClick={handleBackClick} />
                 </div>
+                <div className="flex justify-center text-xl font-bold">
+                <h3>Your selection</h3>
+                </div>
                 <div className="flex flex-col items-center">
-                    <div className='mt-7'>
+                    <div className='my-7'>
                         <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src="https://kvikmyndir.is/images/poster/x16119_500.jpg.pagespeed.ic.sA04q_-DOC.webp" alt="movietitle"/>
                     </div>
-                    <h3>Your selection</h3>
-                    <div className="px-5 py-3 w-[17rem] h-auto border border-buttonColor rounded-2xl text-xl font-semibold">
+                    <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-buttonColor rounded-2xl text-xl font-semibold">
                         <div className="flex gap-3 place-items-center">
                             <TbMovie/>
                             <p>movie title</p>
@@ -80,15 +82,15 @@ const TicketsConfirmation: React.FC = () => {
                             <p>{room}</p>
                         </div>
                     </div>
-                    <div>
+                    <div className="mt-7 ">
                         <p>How many tickets do you want</p>
-                        <div>
+                        <div className="border border-buttonColor rounded-2xl flex justify-center">
                             <TicketSelector onTicketChange={handleTiketChange}/>
-                            <p>Total: {tickets}</p>
                         </div>
+                        <p>Total: {tickets}</p>
                     </div>
                 </div>
-                <div className='pt-4'>
+                <div className='mt-7 pt-4'>
                         {buttons.map((button)=>{
                             return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
                     </div>
