@@ -19,10 +19,10 @@ const DropDownTime: React.FC<{onSelectShowtime: (time: string, room: string) => 
     return (
         <div className="flex flex-col items-center">
             <div className="w-[21.75rem]">
-                <div className="flex justify-center w-[21.75rem] h-auto border border-[#D9D9D9] shadow-md rounded-2xl">
+                <div className="flex justify-center w-[350px] h-[50px] rounded-2xl">
                     {/* Dropdown Menu */}
                     <select
-                        className="w-full p-2"
+                        className="w-full p-2 bg-green"
                         value={selectedShowtime ? `${selectedShowtime.time}-${selectedShowtime.room}` : ""}
                         onChange={(e) => {
                             const [time, room] = e.target.value.split("-");

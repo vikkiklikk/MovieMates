@@ -4,7 +4,7 @@ function DropDown() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
-  const options = ['Val 1', 'Val 2', 'Val 3'];
+  const options = ['Smárabíó', 'SAMbíó Kringlunni', 'SAMbíó Álfabakka', 'SAMbíó Egilshöll', 'SAMbíó Akureyri', 'SAMbíó Keflavík', 'Laugarásbíó', 'Bíó Paradís'];
 
   return (
     <div>
@@ -21,6 +21,7 @@ function DropDown() {
           onBlur={() => setIsExpanded(false)}
           value={selectedValue}
         >
+          {/*here is the "button for dropdown*/}
           <option value="" disabled>
             Takki
           </option>
