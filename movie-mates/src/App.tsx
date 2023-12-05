@@ -1,4 +1,6 @@
 import "./App.css";
+import VotingProcess from "./pages/VotingProcess";
+
 import Login from "./pages/LoginScreen";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -12,6 +14,7 @@ const App: React.FC = () => {
 
   return (
     <>
+    <VotingProcess/>
     <Login/>
     <Router>
       <Routes>

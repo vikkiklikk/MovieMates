@@ -17,7 +17,7 @@ function Login() {
       </div>
     
 
-      <div>  
+      <div> 
       <form action="" className="space-y-6">
         
       <div className="flex flex-col">
@@ -48,12 +48,8 @@ function Login() {
        </div>
 {/* button */}
 <div>
-<div className="absolute bottom-7 underline text-[14px] justify-center">
-  {buttons.map((button) => (
-    <BigButton title={button.title} key={button.title} />
-  ))}
+<div className="justify-center pt-10"> <BigButton title="Login" /></div>
 <div> <a href="" className="underline" > Forgot your password?</a></div>
-</div>
 </div>
 
       </form>
