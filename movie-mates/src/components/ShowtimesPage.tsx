@@ -5,7 +5,10 @@ import Footer from "./Footer";
 import SmallButton from "./ui/SmallButton";
 import { useState } from "react";
 
-
+type Showtime = {
+    time: string;
+    room: string;
+};
 
 const ShowtimesPage: React.FC = () => {
 
@@ -18,7 +21,16 @@ const ShowtimesPage: React.FC = () => {
 
     const navigateToBuyTickets = () => {
         if (selectedShowtime) {
-            navigate(`/buy-tickets/${selectedShowtime.time}/${selectedShowtime.room}`);
+            navigate(`/buytickets/${selectedShowtime.time}/${selectedShowtime.room}`);
+            // Or use state to pass the selectedShowtime object
+        } else {
+            // Handle the case where no showtime is selected
+        }
+    };
+
+    const navigateToVoting = () => {
+        if (selectedShowtime) {
+            navigate(`/movie/:title/voting/${selectedShowtime.time}/${selectedShowtime.room}`);
             // Or use state to pass the selectedShowtime object
         } else {
             // Handle the case where no showtime is selected
@@ -27,7 +39,7 @@ const ShowtimesPage: React.FC = () => {
 
     const Buttons = [
         {title: "Send to vote",
-        onclick: () => navigate('/')
+        onclick: navigateToVoting
     },
         {title: "Buy tickets",
         onclick: navigateToBuyTickets
@@ -51,7 +63,7 @@ const ShowtimesPage: React.FC = () => {
                     <p>here come the dates</p>
                 </div>
                 
-                <TheaterContainer onSelectedShowtime={handleSelectedShowtime} />
+                <TheaterContainer onSelectShowtime={handleSelectedShowtime} />
                 <div className="flex justify-between">
                     {Buttons.map((button)=>{
                         return <SmallButton key={button.title} title={button.title} onClick={button.onclick} ></SmallButton>
