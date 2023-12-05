@@ -8,11 +8,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from "./pages/HomeScreen";
 import SelectedMovie from "./components/SelectedPage";
 import ShowtimesPage from "./components/ShowtimesPage";
+import VotingShowtimeContainer from "./components/VotingShowtimeContainer";
 
 const App: React.FC = () => {
 
   return (
     <>
+    <VotingShowtimeContainer/>
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
