@@ -1,5 +1,4 @@
-//I need to fix the ticket quantity window
-//and I have not done the Movie theater connections
+//I have not done the Movie theater connections
 import {FaArrowLeft} from "react-icons/fa6";
 import { WiTime8 } from "react-icons/wi";
 import { TbMovie } from "react-icons/tb";
