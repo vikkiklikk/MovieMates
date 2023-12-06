@@ -42,7 +42,7 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="w-[390px] h-[200px] relative bg-blue-500 overflow-hidden">
+    <div className="w-[390px] h-[200px] relative bg-[#282828] overflow-hidden">
       <div className="flex items-center justify-center h-full">
         {/* Left Slide */}
         <div
