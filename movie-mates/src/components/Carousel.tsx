@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
-const slides = [
+interface Slide {
+  url: string;
+}
+const slides: Slide[] = [
   {
     url: "https://kvikmyndir.is/images/poster/x16119_500.jpg.pagespeed.ic.sA04q_-DOC.webp",
   },
@@ -22,47 +25,79 @@ const slides = [
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const currentSlide = slides[currentIndex];
+  const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+  const nextIndex = (currentIndex + 1) % slides.length;
+
   useEffect(() => {
     const intervalId = setInterval(() => {
-      // Increment currentIndex to move to the next image
-      setCurrentIndex((prevIndex) =>
-        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 10000); // Switch to the next image every 10 seconds
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 10000);
 
-    // Cleanup the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, []);
 
   return (
-    // Carousel container
-    <div className="w-[390px] h-[200px] relative bg-blue-500">
-      <div
-        // Movie posters - need to reposition some of the posters to show more importart part of the poster
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className="w-full h-full rounded-2xl bg-cover bg-[50%] duration-500"
-      ></div>
-      {/* Left Arrow */}
-      <div
-        className="absolute top[50%] translate-x-0 translate-y-[-120px] left-2 text-2xl rounded-full p-2 bg-black/20 cursor-pointer"
-        onClick={() =>
-          setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-          )
-        }
-      >
-        <BsChevronCompactLeft size={30} color="white" />
+    <div className="w-[390px] h-[200px] relative bg-blue-500 overflow-hidden">
+      <div className="flex items-center justify-center h-full">
+        {/* Left Slide */}
+        <div
+          className="absolute left-0 w-[130px] h-[160px] transform scale-90 opacity-70"
+          style={{ transition: "transform 0.5s, opacity 0.5s" }}
+          onClick={() => goToSlide(prevIndex)}
+        >
+          <img
+            src={slides[prevIndex].url}
+            alt={`Slide ${prevIndex + 1}`}
+            className="w-full h-full rounded-2xl object-cover"
+            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+          />
+        </div>
+
+        {/* Current Slide */}
+        <div className="z-10" onClick={() => goToSlide(currentIndex)}>
+          <img
+            src={currentSlide.url}
+            alt={`Slide ${currentIndex + 1}`}
+            className="max-w-full h-[180px]"
+            style={{ objectFit: "contain", borderRadius: "16px" }}
+          />
+        </div>
+
+        {/* Right Slide */}
+        <div
+          className="absolute right-0 w-[130px] h-[160px] transform scale-90 opacity-70"
+          style={{ transition: "transform 0.5s, opacity 0.5s" }}
+          onClick={() => goToSlide(nextIndex)}
+        >
+          <img
+            src={slides[nextIndex].url}
+            alt={`Slide ${nextIndex + 1}`}
+            className="w-full h-full rounded-2xl object-cover"
+            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+          />
+        </div>
       </div>
-      {/* Right Arrow */}
-      <div
-        className="absolute top[50%] translate-x-0 translate-y-[-120px] right-2 text-2xl rounded-full p-2 bg-black/20 cursor-pointer"
-        onClick={() =>
-          setCurrentIndex((prevIndex) =>
-            prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-          )
-        }
-      >
-        <BsChevronCompactRight size={30} color="white" />
+
+      {/* Navigation Arrows */}
+      <div className="absolute top-0 bottom-0 flex items-center">
+        {/* <div
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 w-1/2 cursor-pointer"
+          onClick={goToPreviousSlide}
+        >
+          <BsChevronCompactLeft size={30} color="white" />
+        </div> */}
+
+        {/* <div
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 w-1/2 cursor-pointer"
+          onClick={goToNextSlide}
+        >
+          <BsChevronCompactRight size={30} color="white" />
+        </div> */}
       </div>
     </div>
   );
