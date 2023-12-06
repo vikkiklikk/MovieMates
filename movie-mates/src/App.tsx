@@ -12,6 +12,7 @@ import TicketsConfirmation from "./pages/TicketsConfirmation";
 import Payment from "./pages/PaymentScreen";
 import PaymentSucceed from "./pages/PaymentSucceed";
 import MyFriends from "./Friends";
+import Image from "./pages/Profile";
 
 const App: React.FC = () => {
 
