@@ -33,7 +33,7 @@ const TheaterContainer: React.FC<{onSelectShowtime: (time: string, room: string)
             <div className="w-[21.75rem]">
                 {/*Here I have to connect to kvikmyndir API or hardcode it myself if I don't get the info */}
                 <h3>SAMbíó Álfabakka</h3>
-                <div className="flex justify-center w-[21.75rem] h-auto border border-[#D9D9D9] shadow-md rounded-2xl">
+                <div className="flex justify-center w-[21.75rem] h-auto border border-[#D9D9D9] rounded-2xl">
                     <div className=" grid grid-cols-3 gap-5 py-4 ">
                         {showtimes.map((showtime, index)=>{
                             {/*Here "const isSelected" is to make shure that you can only choose one box*/}

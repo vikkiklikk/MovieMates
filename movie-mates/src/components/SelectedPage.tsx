@@ -10,8 +10,9 @@ import Footer from './Footer';
 
 const SelectedMovie: React.FC = () => {
   const [movie, setMovie] = useState<Movie | null>(null);
-  const { title } = useParams<{ title: string }>(); // Specify the type of URL params
+  const { title } = useParams<{ title: string }>(); // // Retrieve the movie title of URL parameters
 
+      // fetching the data by the title of the movie
   useEffect(() => {
     if (title) {
       fetchMovieData(title).then(data => {
@@ -25,11 +26,15 @@ const SelectedMovie: React.FC = () => {
   }, [title]);
 
   const navigate = useNavigate();
+  //navigation for the back arrow, goes back one page
    const handleBackClick = () => {
     navigate(-1);
    };
+   //Navigating to Showtimes page including the title of the movie
    const goToShowtimesPage = () => {
-    navigate ('/movie/&{title}/Showtimes');
+    if (movie && movie.title) {
+        navigate (`/movie/${movie.title}/Showtimes`);
+    }
    };
 
   const { addFavorite, removeFavorite, isFavorite} = useFavorites();
@@ -38,7 +43,7 @@ const SelectedMovie: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-   // the favorite function for the favorite button
+   // the favorite function for the favorite star
    const favorite = isFavorite(movie.imdbID);
 
    const handleFavoriteClick = () => {

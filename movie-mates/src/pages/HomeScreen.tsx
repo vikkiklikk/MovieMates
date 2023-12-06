@@ -6,6 +6,7 @@ import { Movie } from "../types";
 import { IoIosSearch } from "react-icons/io";
 import { HiOutlineAdjustmentsVertical } from "react-icons/hi2";
 import Footer from "../components/Footer";
+import Carousel from "../components/Carousel";
 
 
 const HomeScreen: React.FC = () => {
@@ -28,11 +29,11 @@ const HomeScreen: React.FC = () => {
     return (
         <div>
             <div className="pb-16">
-                <div className={`flex justify-end pr-10 py-3`}>
+                <div className={`flex justify-end pr-10 py-3 font-bold`}>
                     <h1 className={`text-3xl`}>MovieMates</h1>
                 </div>
-                <div className={`p-4`}>
-                    Here comes the carousel
+                <div className="">
+                <Carousel/>
                 </div>
                 <div className={`flex justify-end pr-6 pb-2`}>
                     <IoIosSearch/>
@@ -51,7 +52,7 @@ const HomeScreen: React.FC = () => {
             </div> 
             <Footer/>
         </div>       
-    )
-}
+    );
+};
 
 export default HomeScreen;
