@@ -1,9 +1,11 @@
 import {FaArrowLeft} from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import TheaterContainer from "./TheaterContainer";
 import Footer from "./Footer";
 import SmallButton from "./ui/SmallButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Movie } from "../types";
+import { fetchMovieData } from "../api/api-tmdb";
 
 type Showtime = {
     time: string;
@@ -11,37 +13,51 @@ type Showtime = {
 };
 
 const ShowtimesPage: React.FC = () => {
-
     const [selectedShowtime, setSelectedShowtime] = useState<Showtime | null>(null);
+    const [movie, setMovie] = useState<Movie | null>(null);
+    const { title } = useParams<{ title: string }>(); // Retrieve the movie title of URL parameters
 
+        // fetching the data by the title of the movie
+    useEffect(() => {
+        if (title) {
+          fetchMovieData(title).then(data => {
+            if(data) {
+                setMovie(data);
+            } else {
+                console.log("No movie found for the given title");
+            }
+          });
+        }
+      }, [title]);
+    
     const navigate = useNavigate ();
+    //navigation for the back arrow, goes back one page
     const handleBackClick = () => {
         navigate (-1);
     };
-
+    //navigation for "buy tickets" button
     const navigateToBuyTickets = () => {
-        if (selectedShowtime) {
-            navigate(`/movie/&{movieTitle}/tickets/${selectedShowtime.time}/${selectedShowtime.room}`);
-        } else {
-            // Handle the case where no showtime is selected
+        if (selectedShowtime && movie && movie.title) {
+            navigate(`/movie/${movie.title}/tickets/${selectedShowtime.time}/${selectedShowtime.room}/ticketsConfirmation`);
+        } else {// the case where no showtime is selected
+        }
+    };
+    //    //navigation for "send to vote" button
+    const navigateToVoting = () => {
+        if (selectedShowtime && movie && movie.title) {
+            navigate(`/movie/${movie.title}/voting/${selectedShowtime.time}/${selectedShowtime.room}/`);
+        } else {// the case where no showtime is selected
         }
     };
 
-    const navigateToVoting = () => {
-        if (selectedShowtime) {
-            navigate(`/movie/:title/voting/${selectedShowtime.time}/${selectedShowtime.room}`);
-        } else {
-            // Handle the case where no showtime is selected
-        }
-    };
+    //specifying what happens if no movie is found
+    if (!movie) {
+        return <div>Loading...</div>;
+      }
 
     const Buttons = [
-        {title: "Send to vote",
-        onclick: navigateToVoting
-    },
-        {title: "Buy tickets",
-        onclick: navigateToBuyTickets
-    }
+        {title: "Send to vote", onclick: navigateToVoting},
+        {title: "Buy tickets", onclick: navigateToBuyTickets}
     ];
 
     const handleSelectedShowtime = (time: string, room:string) => {
@@ -55,7 +71,7 @@ const ShowtimesPage: React.FC = () => {
                     <FaArrowLeft onClick={handleBackClick} />
                 </div>
                 <div className="flex justify-center text-xl font-bold ">
-                    <p>Title of the movie</p>
+                    <p>{movie.title}</p>
                 </div>
                 <div className="my-5 flex justify-center">
                     <p>here come the dates</p>

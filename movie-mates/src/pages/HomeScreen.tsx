@@ -51,7 +51,7 @@ const HomeScreen: React.FC = () => {
             </div> 
             <Footer/>
         </div>       
-    )
-}
+    );
+};
 
 export default HomeScreen;

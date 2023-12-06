@@ -12,12 +12,10 @@ import BigButton from "../components/ui/BigButton";
 import { Movie } from "../types";
 import { useEffect, useState } from "react";
 import { fetchMovieData } from "../api/api-tmdb";
-import TicketSelector from "../components/TicketSelectorProps";
 
-const TicketsConfirmation: React.FC = () => {
+const PaymentSucceed: React.FC = () => {
     const { time, room, title } = useParams<{ time: string, room: string, title: string }>();
     const [movie, setMovie] = useState<Movie | null>(null);
-    const [tickets, setTickets] = useState(1);
   
     // fetching the data by the title of the movie
   useEffect(() => {
@@ -31,11 +29,6 @@ const TicketsConfirmation: React.FC = () => {
       });
     }
   }, [title]);
-
-    //function for the ticket box, where you can choose more of less tickets
-    const handleTiketChange = (newTicketCount: number) => {
-        setTickets (newTicketCount);
-    };
 
     const navigate = useNavigate();
     //navigation for the back arrow, goes back one page
@@ -66,12 +59,9 @@ const TicketsConfirmation: React.FC = () => {
                     <FaArrowLeft onClick={handleBackClick} />
                 </div>
                 <div className="flex justify-center text-xl font-bold">
-                <h3>Your selection</h3>
+                <h3>Enjoy the movie</h3>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className='my-7'>
-                        <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title}/>
-                    </div>
                     <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-buttonColor rounded-2xl text-xl font-semibold">
                         <div className="flex gap-3 place-items-center">
                             <TbMovie/>
@@ -94,18 +84,11 @@ const TicketsConfirmation: React.FC = () => {
                             <p>{room}</p>
                         </div>
                     </div>
-                    <div className="mt-7 ">
-                        <p>How many tickets do you want</p>
-                        <div className="border border-buttonColor rounded-2xl flex justify-center">
-                            <TicketSelector onTicketChange={handleTiketChange}/>
-                        </div>
-                        <p>Total: {tickets}</p>
-                    </div>
                 </div>
                 <div className='mt-7 pt-4'>
-                        {buttons.map((button)=>{
-                            return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
-                    </div>
+                    {buttons.map((button)=>{
+                        return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
+                </div>
             </div>
             <Footer/>
         </div>
@@ -113,4 +96,4 @@ const TicketsConfirmation: React.FC = () => {
     );
 };
 
-export default TicketsConfirmation;
+export default PaymentSucceed;
