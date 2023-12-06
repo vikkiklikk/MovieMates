@@ -7,13 +7,20 @@ type Showtime = {
 };
 
 const TheaterContainer: React.FC<{onSelectShowtime: (time: string, room: string) => void}> = ({onSelectShowtime}) => {
-
     const [selectedShowtime, setSelectedShowtime] = useState<Showtime | null>(null);
 
+    //Making the selection function so that only one box can be chosen, and you can deselect it
     const handleSelectedShowtime = (time: string, room: string) => {
-        setSelectedShowtime ({time, room});
+        if (selectedShowtime && selectedShowtime.time === time && selectedShowtime.room === room) {
+            setSelectedShowtime(null);
+            onSelectShowtime ('','')
+        } else {
+            setSelectedShowtime({ time, room });
+            onSelectShowtime(time, room);
+        }
     };
 
+    //using props form "BoxShowtime" to make boxes
     const showtimes = [
         {time:"18:00", room: "Salur 1"},
         {time:"20:00", room: "Salur 1"},
@@ -28,14 +35,15 @@ const TheaterContainer: React.FC<{onSelectShowtime: (time: string, room: string)
                 <h3>SAMbíó Álfabakka</h3>
                 <div className="flex justify-center w-[21.75rem] h-auto border border-[#D9D9D9] shadow-md rounded-2xl">
                     <div className=" grid grid-cols-3 gap-5 py-4 ">
-                        {/*I need to add "key" prop */}
                         {showtimes.map((showtime, index)=>{
-                            const key = `${showtime.time}-${showtime.room}-${index}`;
+                            {/*Here "const isSelected" is to make shure that you can only choose one box*/}
+                            const isSelected = selectedShowtime?.time === showtime.time && selectedShowtime?.room === showtime.room;
                             return ( <BoxShowtime 
-                                key={key}
+                                key={`${showtime.time}-${showtime.room}-${index}`}
                                 time={showtime.time} 
                                 room={showtime.room}
-                                onSelect={onSelectShowtime}/> 
+                                isSelected={isSelected}
+                                onSelect={handleSelectedShowtime}/> 
                             );
                         })}
                     </div>

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from "./pages/HomeScreen";
 import SelectedMovie from "./components/SelectedPage";
 import ShowtimesPage from "./components/ShowtimesPage";
+import TicketsConfirmation from "./pages/TicketsConfirmation";
 
 const App: React.FC = () => {
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Route path="/movie/:title" element={<SelectedMovie/>}/>
         <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
         <Route path="/movie/:title/voting" element={<VotingProcess/>}/>
+        <Route path="/movie/:title/tickets/:time/:room" element={<TicketsConfirmation/>}/>
       </Routes>
     </Router>
     </>

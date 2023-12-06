@@ -5,7 +5,10 @@ import Footer from "./Footer";
 import SmallButton from "./ui/SmallButton";
 import { useState } from "react";
 
-
+type Showtime = {
+    time: string;
+    room: string;
+};
 
 const ShowtimesPage: React.FC = () => {
 
@@ -18,8 +21,15 @@ const ShowtimesPage: React.FC = () => {
 
     const navigateToBuyTickets = () => {
         if (selectedShowtime) {
-            navigate(`/buy-tickets/${selectedShowtime.time}/${selectedShowtime.room}`);
-            // Or use state to pass the selectedShowtime object
+            navigate(`/movie/&{movieTitle}/tickets/${selectedShowtime.time}/${selectedShowtime.room}`);
+        } else {
+            // Handle the case where no showtime is selected
+        }
+    };
+
+    const navigateToVoting = () => {
+        if (selectedShowtime) {
+            navigate(`/movie/:title/voting/${selectedShowtime.time}/${selectedShowtime.room}`);
         } else {
             // Handle the case where no showtime is selected
         }
@@ -27,7 +37,7 @@ const ShowtimesPage: React.FC = () => {
 
     const Buttons = [
         {title: "Send to vote",
-        onclick: () => navigate('/')
+        onclick: navigateToVoting
     },
         {title: "Buy tickets",
         onclick: navigateToBuyTickets
@@ -47,12 +57,11 @@ const ShowtimesPage: React.FC = () => {
                 <div className="flex justify-center text-xl font-bold ">
                     <p>Title of the movie</p>
                 </div>
-                <div className="flex justify-center">
+                <div className="my-5 flex justify-center">
                     <p>here come the dates</p>
                 </div>
-                
-                <TheaterContainer onSelectedShowtime={handleSelectedShowtime} />
-                <div className="flex justify-between">
+                <TheaterContainer onSelectShowtime={handleSelectedShowtime} />
+                <div className=" mt-7 flex justify-between">
                     {Buttons.map((button)=>{
                         return <SmallButton key={button.title} title={button.title} onClick={button.onclick} ></SmallButton>
                     })}
