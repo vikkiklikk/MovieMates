@@ -68,10 +68,10 @@ const ShowtimesPage: React.FC = () => {
         <div>
             <div className="pb-16 pt-7 px-7">
                 <div>
-                    <FaArrowLeft onClick={handleBackClick} />
+                    <FaArrowLeft size={24} onClick={handleBackClick} />
                 </div>
-                <div className="flex justify-center text-xl font-bold ">
-                    <p>{movie.title}</p>
+                <div className="flex justify-center">
+                    <h3 className='text-xl font-bold '>{movie.title}</h3>
                 </div>
                 <div className="my-5 flex justify-center">
                     <p>here come the dates</p>

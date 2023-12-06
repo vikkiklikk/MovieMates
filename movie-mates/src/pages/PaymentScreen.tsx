@@ -57,7 +57,7 @@ const Payment: React.FC = () => {
         <div>
             <div className="pb-16 pt-7 px-7">
                 <div>
-                    <FaArrowLeft onClick={handleBackClick} />
+                    <FaArrowLeft size={24} onClick={handleBackClick} />
                 </div>
                 <p>ticket quantity</p>
                 <p>total price</p>

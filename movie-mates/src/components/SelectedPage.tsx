@@ -7,6 +7,7 @@ import useFavorites from '../hooks/useFavorites';
 import BigButton from './ui/BigButton';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import { FaRegStar } from 'react-icons/fa';
 
 const SelectedMovie: React.FC = () => {
   const [movie, setMovie] = useState<Movie | null>(null);
@@ -55,7 +56,7 @@ const SelectedMovie: React.FC = () => {
    };
    // making changes to the color of the favorite star when it is clicked
    const starStyle = {
-       ...favorite ? {fill: 'yellow'} : {fill: 'black'}
+       ...favorite ? {fill: '#FAFF00'} : {fill: 'transparent'}
    };
 
    const buttons = [
@@ -66,9 +67,10 @@ const SelectedMovie: React.FC = () => {
     <div>
         <div className='pb-16'>
             <div className='mt-7 flex justify-between px-7'>
-                <FaArrowLeft onClick={handleBackClick}/>
-                <button onClick={handleFavoriteClick}>
-                    <FaStar style={starStyle}/>
+                <FaArrowLeft size={24} onClick={handleBackClick}/>
+                <button className="relative inline-block" onClick={handleFavoriteClick}>
+                    <FaRegStar size={24} className="absolute"/>
+                    <FaStar size={24} style={starStyle}/>
                 </button>
             </div>
             <div className='mt-7 flex justify-center'>

@@ -63,10 +63,10 @@ const TicketsConfirmation: React.FC = () => {
         <div>
             <div className="pb-16 pt-7 px-7">
                 <div>
-                    <FaArrowLeft onClick={handleBackClick} />
+                    <FaArrowLeft size={24} onClick={handleBackClick} />
                 </div>
                 <div className="flex justify-center text-xl font-bold">
-                <h3>Your selection</h3>
+               
                 </div>
                 <div className="flex flex-col items-center">
                     <div className='my-7'>
