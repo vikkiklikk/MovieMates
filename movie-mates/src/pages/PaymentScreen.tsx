@@ -1,7 +1,7 @@
 import {FaArrowLeft} from "react-icons/fa6";
 import Footer from "../components/Footer";
 import BigButton from "../components/ui/BigButton";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Movie } from "../types";
 import { useEffect, useState } from "react";
 import { fetchMovieData } from "../api/api-tmdb";
@@ -22,7 +22,11 @@ const Payment: React.FC = () => {
           });
         }
       }, [title]);
-    
+
+    //retrieving the total price from previous page  
+    const location = useLocation();
+    const totalAmount = location.state?.total;
+
     const navigate = useNavigate ();
     //navigation for the back arrow, goes back one page
     const handleBackClick = () => {
@@ -59,8 +63,7 @@ const Payment: React.FC = () => {
                 <div>
                     <FaArrowLeft size={24} onClick={handleBackClick} />
                 </div>
-                <p>ticket quantity</p>
-                <p>total price</p>
+                <p className="text-lg font-semibold my-7">Total price {totalAmount} kr.</p>
                 <div className="w-[320px] mt-3">
                     <form onSubmit={handleSubmit} className="space-y-3">
                         <div className="flex gap-4">

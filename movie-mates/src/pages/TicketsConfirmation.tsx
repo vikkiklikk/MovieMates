@@ -37,6 +37,9 @@ const TicketsConfirmation: React.FC = () => {
         setTickets (newTicketCount);
     };
 
+    //creating a price for one ticket
+    const totalAmount = tickets * 1290;
+
     const navigate = useNavigate();
     //navigation for the back arrow, goes back one page
     const handleBackClick = () => {
@@ -45,7 +48,7 @@ const TicketsConfirmation: React.FC = () => {
     //navigation for "Confirm" button
     const goToPayment = () => {
         if (movie && movie.title) {
-            navigate (`/movie/${movie.title}/payment`);
+            navigate (`/movie/${movie.title}/payment`, {state: {total: totalAmount}});
         } else { //the case where no movie is found
         }
     };
@@ -53,7 +56,7 @@ const TicketsConfirmation: React.FC = () => {
        //specifying what happens if no movie is found
     if (!movie) {
         return <div>Loading...</div>;
-      }
+      };
 
     const buttons = [
         {title: "Confirm"}
@@ -64,9 +67,6 @@ const TicketsConfirmation: React.FC = () => {
             <div className="pb-16 pt-7 px-7">
                 <div>
                     <FaArrowLeft size={24} onClick={handleBackClick} />
-                </div>
-                <div className="flex justify-center text-xl font-bold">
-               
                 </div>
                 <div className="flex flex-col items-center">
                     <div className='my-7'>
@@ -94,15 +94,13 @@ const TicketsConfirmation: React.FC = () => {
                             <p>{room}</p>
                         </div>
                     </div>
-                    <div className="mt-7 ">
+                    <div className="mt-7 flex flex-col place-items-center gap-2">
                         <p>How many tickets do you want</p>
-                        <div className="border border-buttonColor rounded-2xl flex justify-center">
-                            <TicketSelector onTicketChange={handleTiketChange}/>
-                        </div>
-                        <p>Total: {tickets}</p>
+                        <TicketSelector onTicketChange={handleTiketChange}/>
+                        <p className="font-semibold">Total {tickets * 1290} kr.</p>
                     </div>
                 </div>
-                <div className='mt-7 pt-4'>
+                <div className='mt-4 pt-4'>
                         {buttons.map((button)=>{
                             return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
                     </div>
