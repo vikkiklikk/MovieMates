@@ -61,7 +61,6 @@ const Payment: React.FC = () => {
                 </div>
                 <p>ticket quantity</p>
                 <p>total price</p>
-                
                 <div className="w-[320px] mt-3">
                     <form onSubmit={handleSubmit} className="space-y-3">
                         <div className="flex gap-4">
