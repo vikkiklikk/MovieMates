@@ -72,7 +72,7 @@ const TicketsConfirmation: React.FC = () => {
                     <div className='my-7'>
                         <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title}/>
                     </div>
-                    <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-buttonColor rounded-2xl text-xl font-semibold">
+                    <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-[#D9D9D9] rounded-2xl text-xl font-semibold">
                         <div className="flex gap-3 place-items-center">
                             <TbMovie/>
                             <p>{movie.title}</p>

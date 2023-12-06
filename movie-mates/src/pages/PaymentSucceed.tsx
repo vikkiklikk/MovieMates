@@ -35,7 +35,7 @@ const PaymentSucceed: React.FC = () => {
     const handleBackClick = () => {
         navigate(-1);
     };
-    //navigation for "Confirm" button
+    //navigation for "Go to wallet" button
     const goToPayment = () => {
         if (movie && movie.title) {
             navigate (`/movie/${movie.title}/payment`);
@@ -49,7 +49,7 @@ const PaymentSucceed: React.FC = () => {
       }
 
     const buttons = [
-        {title: "Confirm"}
+        {title: "Go to wallet"}
     ];
 
     return (
@@ -59,10 +59,11 @@ const PaymentSucceed: React.FC = () => {
                     <FaArrowLeft onClick={handleBackClick} />
                 </div>
                 <div className="flex justify-center text-xl font-bold">
-                <h3>Enjoy the movie</h3>
+                
+                <p>Here is your ticket, you can find it later in your wallet</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-buttonColor rounded-2xl text-xl font-semibold">
+                    <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-[#D9D9D9] rounded-2xl text-xl font-semibold">
                         <div className="flex gap-3 place-items-center">
                             <TbMovie/>
                             <p>{movie.title}</p>

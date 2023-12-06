@@ -40,18 +40,91 @@ const Payment: React.FC = () => {
         {title: "Purchase"}
     ];
 
+    //State variables for the card information inputs
+    const [paymentType, setPaymentType] = useState('card'); // Default to card
+    const [cardNumber, setCardNumber] = useState('');
+    const [expiry, setExpiry] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [cardHolderName, setCardHolderName] = useState('');
+
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        alert('Payment information submitted (dummy data, no real transaction)');
+        // Here you can reset the form or navigate to another page
+    };
+
     return (
         <div>
-            <div>
+            <div className="pb-16 pt-7 px-7">
                 <div>
                     <FaArrowLeft onClick={handleBackClick} />
                 </div>
-                <p>dropdown to choose type of payment</p>
-                <p>Card number</p>
-                <p>date</p>
-                <p>cvc</p>
-                <p>name on card</p>
-                <div>
+                <p>ticket quantity</p>
+                <p>total price</p>
+                
+                <div className="w-[320px] mt-3">
+                    <form onSubmit={handleSubmit} className="space-y-3">
+                        <div className="flex gap-4">
+                            <label>
+                                <input 
+                                    type="radio" 
+                                    value="card" 
+                                    checked={paymentType === 'card'} 
+                                    onChange={() => setPaymentType('card')}
+                                />
+                                Credit/Debit Card
+                            </label>
+                            <label>
+                                <input 
+                                    type="radio" 
+                                    value="applepay" 
+                                    checked={paymentType === 'applepay'} 
+                                    onChange={() => setPaymentType('applepay')}
+                                />
+                                Apple Pay
+                            </label>
+                        </div>
+                        <div className="flex flex-col">
+                            <label className="italic">Card Number</label>
+                            <input className="w-[320px] h-[50px] rounded-2xl bg-green"
+                                type="text" 
+                                value={cardNumber} 
+                                onChange={(e) => setCardNumber(e.target.value)} 
+                                placeholder="1234 5678 9012 3456"
+                            />
+                        </div>
+                        <div className="flex justify-between">
+                            <div className="flex flex-col">
+                                <label className="italic">Expiry Date</label>
+                                <input className="w-[150px] h-[50px] rounded-2xl bg-green"
+                                    type="text" 
+                                    value={expiry} 
+                                    onChange={(e) => setExpiry(e.target.value)} 
+                                    placeholder="MM/YY"
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <label className="italic">CVC</label>
+                                <input className="w-[150px] h-[50px] rounded-2xl bg-green"
+                                    type="text" 
+                                    value={cvv} 
+                                    onChange={(e) => setCvv(e.target.value)} 
+                                    placeholder="123"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <label className="italic">Cardholder name</label>
+                            <input className="w-[320px] h-[50px] rounded-2xl bg-green"
+                                type="text"
+                                value={cardHolderName} 
+                                onChange={(e) => setCardHolderName(e.target.value)} 
+                                placeholder="John Doe"
+                            />
+                        </div>
+                    </form>
+                </div>
+                <div className="mt-7">
                 {buttons.map((button)=>{
                     return <BigButton key={button.title} title={button.title} onClick={goToPaymentConfirmation}></BigButton>})}
                 </div>
