@@ -57,7 +57,7 @@ const Image: React.FC<ImageType> = (props) => {
         {/* Add any content or child components for the image container if needed */}
       </div>
 {/*Footer*/}
-     
+   
     </div>
   );
 };
