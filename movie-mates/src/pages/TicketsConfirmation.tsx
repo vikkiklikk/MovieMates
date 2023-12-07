@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import BigButton from "../components/ui/BigButton";
 import { useState } from "react";
 import TicketSelector from "../components/TicketSelectorProps";
-import { useMovieContext } from "../context/MovieContext";
+import { useMovieContext } from "../hooks/MovieContext";
 
 const TicketsConfirmation: React.FC = () => {
     //const { time, room, title } = useParams<{ time: string, room: string, title: string }>();

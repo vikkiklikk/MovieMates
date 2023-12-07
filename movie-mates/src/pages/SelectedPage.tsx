@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchMovieData } from '../api/api-tmdb';
 import useFavorites from '../hooks/useFavorites';
-import BigButton from './ui/BigButton';
-import Footer from './Footer';
+import BigButton from '../components/ui/BigButton';
+import Footer from '../components/Footer';
 import { FaStar, FaArrowLeft } from "react-icons/fa6";
 import { FaRegStar } from 'react-icons/fa';
-import { useMovieContext } from '../context/MovieContext';
+import { useMovieContext } from '../hooks/MovieContext';
 
 const SelectedMovie: React.FC = () => {
  //const [movie, setMovie] = useState<Movie | null>(null);

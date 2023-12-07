@@ -6,13 +6,15 @@ import Login from "./pages/LoginScreen";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from "./pages/HomeScreen";
-import SelectedMovie from "./components/SelectedPage";
-import ShowtimesPage from "./components/ShowtimesPage";
+import SelectedMovie from "./pages/SelectedPage";
+import ShowtimesPage from "./pages/ShowtimesPage";
 import TicketsConfirmation from "./pages/TicketsConfirmation";
 import Payment from "./pages/PaymentScreen";
 import PaymentSucceed from "./pages/PaymentSucceed";
-import MyFriends from "./FriendPage";
-import { MovieProvider } from "./context/MovieContext";
+import MyFriends from "./pages/FriendPage";
+import Profile from "./pages/Profile";
+import Wallet from "./pages/Wallet";
+import { MovieProvider } from "./hooks/MovieContext";
 
 const App: React.FC = () => {
 
@@ -22,7 +24,6 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<LandingPage/>}/>
             <Route path="/signup" element={<SignUp/>}/>
-            <Route path="/FriendPage" element={<MyFriends/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/home" element={<HomeScreen/>}/>
             <Route path="/movie/:title" element={<SelectedMovie/>}/>
@@ -31,6 +32,9 @@ const App: React.FC = () => {
             <Route path="/movie/:title/tickets/:time/:room/ticketsConfirmation" element={<TicketsConfirmation/>}/>
             <Route path="/movie/:title/payment" element={<Payment/>}/>
             <Route path="/movie/:title/paymentsucceed" element={<PaymentSucceed/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/friendPage" element={<MyFriends/>}/>
+            <Route path="/wallet" element={<Wallet/>}/>
           </Routes>
         </Router>
     </MovieProvider>
