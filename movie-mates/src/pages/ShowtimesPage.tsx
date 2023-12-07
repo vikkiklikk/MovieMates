@@ -1,10 +1,10 @@
 import {FaArrowLeft} from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import TheaterContainer from "./TheaterContainer";
-import Footer from "./Footer";
-import SmallButton from "./ui/SmallButton";
+import TheaterContainer from "../components/TheaterContainer";
+import Footer from "../components/Footer";
+import SmallButton from "../components/ui/SmallButton";
 import { useState } from "react";
-import { useMovieContext } from "../context/MovieContext";
+import { useMovieContext } from "../hooks/MovieContext";
 
 type Showtime = {
     time: string;
