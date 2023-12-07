@@ -19,7 +19,7 @@ function SignUp() {
 
   return (
     <div>
-      <div className="pt-7 pl-7"> <FaArrowLeft onClick={handleBackClick} /></div>
+      <div className="pt-7 pl-7"> <FaArrowLeft size={24} onClick={handleBackClick} /></div>
       <div className="flex flex-col justify-center items-center"><p className="text-[20px] font-bold text-center mt-10 ">create account</p></div>
       <div className="flex items-center justify-center flex-col">
         <div className="bg-buttonColor w-[234px] h-[209px] rounded-[66px] mt-5 mb-5">

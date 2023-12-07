@@ -19,7 +19,7 @@ function Login() {
 
   return (
     <div>
-      <div className="pt-7 pl-7"> <FaArrowLeft onClick={handleBackClick} /></div>
+      <div className="pt-7 pl-7"> <FaArrowLeft size={24} onClick={handleBackClick} /></div>
       <div className="flex items-center justify-center h-screen flex-col">
         <div  className="font-bold text-center mt-10"> 
           <p> log into your account</p>

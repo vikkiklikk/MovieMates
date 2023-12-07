@@ -30,7 +30,7 @@ const HomeScreen: React.FC = () => {
         <div>
             <div className="pb-16">
                 <div className={`flex justify-end pr-10 py-3 font-bold`}>
-                    <h1 className={`text-3xl`}>MovieMates</h1>
+                    <h1 className={`text-3xl font-bold`}>MovieMates</h1>
                 </div>
                 <div className="">
                 <Carousel/>

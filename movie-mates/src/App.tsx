@@ -12,28 +12,28 @@ import TicketsConfirmation from "./pages/TicketsConfirmation";
 import Payment from "./pages/PaymentScreen";
 import PaymentSucceed from "./pages/PaymentSucceed";
 import MyFriends from "./FriendPage";
+import { MovieProvider } from "./context/MovieContext";
 
 const App: React.FC = () => {
 
   return (
-    <>
-  
-   <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/FriendPage" element={<MyFriends/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/home" element={<HomeScreen/>}/>
-        <Route path="/movie/:title" element={<SelectedMovie/>}/>
-        <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
-        <Route path="/movie/:title/voting/:time/:room/" element={<VotingProcess/>}/>
-        <Route path="/movie/:title/tickets/:time/:room/ticketsConfirmation" element={<TicketsConfirmation/>}/>
-        <Route path="/movie/:title/payment" element={<Payment/>}/>
-        <Route path="/movie/:title/paymentsucceed" element={<PaymentSucceed/>}/>
-      </Routes>
-  </Router>
-    </>
+    <MovieProvider>
+      <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage/>}/>
+            <Route path="/signup" element={<SignUp/>}/>
+            <Route path="/FriendPage" element={<MyFriends/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/home" element={<HomeScreen/>}/>
+            <Route path="/movie/:title" element={<SelectedMovie/>}/>
+            <Route path="/movie/:title/showtimes" element={<ShowtimesPage/>}/>
+            <Route path="/movie/:title/voting/:time/:room/" element={<VotingProcess/>}/>
+            <Route path="/movie/:title/tickets/:time/:room/ticketsConfirmation" element={<TicketsConfirmation/>}/>
+            <Route path="/movie/:title/payment" element={<Payment/>}/>
+            <Route path="/movie/:title/paymentsucceed" element={<PaymentSucceed/>}/>
+          </Routes>
+        </Router>
+    </MovieProvider>
   );
 }
 
