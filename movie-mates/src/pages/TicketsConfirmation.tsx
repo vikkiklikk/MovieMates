@@ -72,37 +72,39 @@ const TicketsConfirmation: React.FC = () => {
                         <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title}/>
                     </div>
                     <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-[#D9D9D9] rounded-2xl text-xl font-semibold">
-                        <div className="flex gap-3 place-items-center">
-                            <TbMovie/>
-                            <p>{movie.title}</p>
+                        <div className="flex gap-3 items-center">
+                            <div className="shrink-0">
+                                <TbMovie size={24}/>
+                            </div>
+                            <p className="truncate">{movie.title}</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <MdOutlinePlace/>
+                        <div className="flex gap-3 items-center">
+                            <MdOutlinePlace size={24}/>
                             <p>Cinema</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <IoTodayOutline/>
+                        <div className="flex gap-3 items-center">
+                            <IoTodayOutline size={24}/>
                             <p>Date</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <WiTime8/>
+                        <div className="flex gap-3 items-center">
+                            <WiTime8 size={24}/>
                             <p>{time}</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <GiTheaterCurtains/>
+                        <div className="flex gap-3 items-center">
+                            <GiTheaterCurtains size={24}/>
                             <p>{room}</p>
                         </div>
                     </div>
-                    <div className="mt-7 flex flex-col place-items-center gap-2">
+                    <div className="mt-7 flex flex-col items-center gap-2">
                         <p>How many tickets do you want</p>
                         <TicketSelector onTicketChange={handleTiketChange}/>
                         <p className="font-semibold">Total {tickets * 1290} kr.</p>
                     </div>
                 </div>
                 <div className='mt-4 pt-4'>
-                        {buttons.map((button)=>{
-                            return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
-                    </div>
+                    {buttons.map((button)=>{
+                        return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
+                </div>
             </div>
             <Footer/>
         </div>

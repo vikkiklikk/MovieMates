@@ -4,7 +4,7 @@ import {FaArrowLeft} from "react-icons/fa6";
 import { WiTime8 } from "react-icons/wi";
 import { TbMovie } from "react-icons/tb";
 import { MdOutlinePlace } from "react-icons/md";
-import { IoTodayOutline } from "react-icons/io5";
+import { IoTodayOutline, IoTicketOutline } from "react-icons/io5";
 import { GiTheaterCurtains } from "react-icons/gi";
 import { useNavigate, useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
@@ -64,24 +64,30 @@ const PaymentSucceed: React.FC = () => {
                 </div>
                 <div className="flex flex-col items-center">
                     <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-[#D9D9D9] rounded-2xl text-xl font-semibold">
-                        <div className="flex gap-3 place-items-center">
-                            <TbMovie/>
-                            <p>{movie.title}</p>
+                        <div className="flex gap-3 items-center">
+                            <div className="shrink-0">
+                                <TbMovie size={24}/>
+                            </div>
+                            <p className="truncate">{movie.title}</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <MdOutlinePlace/>
+                        <div className="flex gap-3 items-center">
+                            <MdOutlinePlace size={24}/>
                             <p>Cinema</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <IoTodayOutline/>
+                        <div className="flex gap-3 items-center">
+                            <IoTodayOutline size={24}/>
                             <p>Date</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <WiTime8/>
+                        <div className="flex gap-3 items-center">
+                            <WiTime8 size={24}/>
                             <p>{time}</p>
                         </div>
-                        <div className="flex gap-3 place-items-center">
-                            <GiTheaterCurtains/>
+                        <div className="flex gap-3 items-center">
+                            <GiTheaterCurtains size={24}/>
+                            <p>{room}</p>
+                        </div>
+                        <div className="flex gap-3 items-center">
+                            <IoTicketOutline size={24}/>
                             <p>{room}</p>
                         </div>
                     </div>

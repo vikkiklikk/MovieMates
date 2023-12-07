@@ -55,7 +55,7 @@ const TicketsConfirmation: React.FC = () => {
 
     const friends = [
       {picture:"https://ca.slack-edge.com/T6R96F03V-U05CDBYRJU8-893cd53d9ff5-512", 
-      name: "Svanlaug"},
+      name: "Svana"},
       {picture:"https://ca.slack-edge.com/T6R96F03V-U05CEAJDS3B-ee33dcd79c2a-512", 
       name: "Björk"},
       {picture:"https://ca.slack-edge.com/T6R96F03V-U05C11Z3S0Z-c82e40e29fe0-512", 
@@ -64,56 +64,61 @@ const TicketsConfirmation: React.FC = () => {
 
     return (
         <div>
-            <div className="pb-16 pt-7 px-7">
-                <div>
-                    <FaArrowLeft size={24} onClick={handleBackClick} />
-                </div>
-                <div className="flex flex-col items-center">
-                  <p className="font-semibold">Suggest a vote to your friends</p>
-                    <div className='my-7'>
-                        <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title}/>
-                    </div>
-                    <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-[#D9D9D9] rounded-2xl text-xl font-semibold">
-                        <div className="flex gap-3 place-items-center">
-                            <TbMovie/>
-                            <p>{movie.title}</p>
-                        </div>
-                        <div className="flex gap-3 place-items-center">
-                            <MdOutlinePlace/>
-                            <p>Cinema</p>
-                        </div>
-                        <div className="flex gap-3 place-items-center">
-                            <IoTodayOutline/>
-                            <p>Date</p>
-                        </div>
-                        <div className="flex gap-3 place-items-center">
-                            <WiTime8/>
-                            <p>{time}</p>
-                        </div>
-                        <div className="flex gap-3 place-items-center">
-                            <GiTheaterCurtains/>
-                            <p>{room}</p>
-                        </div>
-                        <div className="flex gap-3 place-items-center">
-                            <LiaUserFriendsSolid/>
-                            <p>Select your friends</p>
-                        </div>
-                        <div className="flex justify-space-even">
-                          {friends.map((friend) =>{
-                            return <Friend picture={friend.picture} name={friend.name}></Friend>
-                          })}
-                          <div className="h-[36px] w-[36px] rounded-full bg-lighBackground">
-                            <button className="flex justify-center items-center">+</button>
-                          </div>  
-                        </div>
-                    </div>
-                </div>
-                <div className='mt-4 pt-4'>
-                        {buttons.map((button)=>{
-                            return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
-                    </div>
+          <div className="pb-16 pt-7 px-7">
+            <div>
+                <FaArrowLeft size={24} onClick={handleBackClick} />
             </div>
-            <Footer/>
+            <div className="flex flex-col items-center">
+              <p className="font-semibold">Suggest a vote to your friends</p>
+              <div className='my-7'>
+                  <img className='w-[21.75rem] h-[11.75rem] rounded-2xl object-cover' src={movie.posterPath} alt={movie.title}/>
+              </div>
+              <div className="mt-3 px-5 py-3 w-[17rem] h-auto border border-[#D9D9D9] rounded-2xl text-xl font-semibold">
+                <div className="flex gap-3 items-center">
+                  <div className="shrink-0">
+                      <TbMovie size={24}/>
+                  </div>
+                  <p className="truncate">{movie.title}</p>
+                </div>
+                  <div className="flex gap-3 items-center">
+                      <MdOutlinePlace size={24}/>
+                      <p>Cinema</p>
+                  </div>
+                  <div className="flex gap-3 items-center">
+                      <IoTodayOutline size={24}/>
+                      <p>Date</p>
+                  </div>
+                  <div className="flex gap-3 items-center">
+                      <WiTime8 size={24}/>
+                      <p>{time}</p>
+                  </div>
+                  <div className="flex gap-3 items-center">
+                      <GiTheaterCurtains size={24}/>
+                      <p>{room}</p>
+                  </div>
+                  <div className="flex gap-3 items-center">
+                      <LiaUserFriendsSolid size={24}/>
+                      <p>Select your friends</p>
+                  </div>
+                  <div className="flex gap-3">
+                    {friends.map((friend) =>{
+                      return <Friend picture={friend.picture} name={friend.name} key={friend.name}></Friend>
+                    })}
+                    <div>
+                      <div className="h-[36px] w-[36px] rounded-full bg-lighBackground flex justify-center items-center">
+                        <button className="h-full w-full text-2xl">+</button>
+                      </div>
+                      <p>Add</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div className='mt-4 pt-4'>
+              {buttons.map((button)=>{
+                return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
+            </div>
+          </div>
+          <Footer/>
         </div>
 
     );
