@@ -6,29 +6,13 @@ import { TbMovie } from "react-icons/tb";
 import { MdOutlinePlace } from "react-icons/md";
 import { IoTodayOutline, IoTicketOutline } from "react-icons/io5";
 import { GiTheaterCurtains } from "react-icons/gi";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 import BigButton from "../components/ui/BigButton";
-import { Movie } from "../types";
-import { useEffect, useState } from "react";
-import { fetchMovieData } from "../api/api-tmdb";
+import { useMovieContext } from "../context/MovieContext";
 
 const PaymentSucceed: React.FC = () => {
-    const { time, room, title } = useParams<{ time: string, room: string, title: string }>();
-    const [movie, setMovie] = useState<Movie | null>(null);
-  
-    // fetching the data by the title of the movie
-  useEffect(() => {
-    if (title) {
-      fetchMovieData(title).then(data => {
-        if(data) {
-            setMovie(data);
-        } else {
-            console.log("No movie found for the given title");
-        }
-      });
-    }
-  }, [title]);
+    const { movieData } = useMovieContext(); // Use the context to access the movie data
 
     const navigate = useNavigate();
     //navigation for the back arrow, goes back one page
@@ -36,15 +20,12 @@ const PaymentSucceed: React.FC = () => {
         navigate(-1);
     };
     //navigation for "Go to wallet" button
-    const goToPayment = () => {
-        if (movie && movie.title) {
-            navigate (`/movie/${movie.title}/payment`);
-        } else { //the case where no movie is found
-        }
+    const goToWallet = () => {
+         navigate (`/wallet`);
     };
     
        //specifying what happens if no movie is found
-    if (!movie) {
+    if (!movieData) {
         return <div>Loading...</div>;
       }
 
@@ -68,7 +49,7 @@ const PaymentSucceed: React.FC = () => {
                             <div className="shrink-0">
                                 <TbMovie size={24}/>
                             </div>
-                            <p className="truncate">{movie.title}</p>
+                            <p className="truncate">{movieData.title}</p>
                         </div>
                         <div className="flex gap-3 items-center">
                             <MdOutlinePlace size={24}/>
@@ -80,21 +61,21 @@ const PaymentSucceed: React.FC = () => {
                         </div>
                         <div className="flex gap-3 items-center">
                             <WiTime8 size={24}/>
-                            <p>{time}</p>
+                            <p>{movieData.time}</p>
                         </div>
                         <div className="flex gap-3 items-center">
                             <GiTheaterCurtains size={24}/>
-                            <p>{room}</p>
+                            <p>{movieData.room}</p>
                         </div>
                         <div className="flex gap-3 items-center">
                             <IoTicketOutline size={24}/>
-                            <p>{room}</p>
+                            <p>{movieData.ticketCount} pcs</p>
                         </div>
                     </div>
                 </div>
                 <div className='mt-7 pt-4'>
                     {buttons.map((button)=>{
-                        return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
+                        return <BigButton key={button.title} title={button.title} onClick={goToWallet}></BigButton>})}
                 </div>
             </div>
             <Footer/>

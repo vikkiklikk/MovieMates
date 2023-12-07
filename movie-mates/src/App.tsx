@@ -11,11 +11,12 @@ import ShowtimesPage from "./components/ShowtimesPage";
 import TicketsConfirmation from "./pages/TicketsConfirmation";
 import Payment from "./pages/PaymentScreen";
 import PaymentSucceed from "./pages/PaymentSucceed";
+import { MovieProvider } from "./context/MovieContext";
 
 const App: React.FC = () => {
 
   return (
-    <>
+    <MovieProvider>
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
@@ -30,7 +31,7 @@ const App: React.FC = () => {
         <Route path="/movie/:title/paymentsucceed" element={<PaymentSucceed/>}/>
       </Routes>
     </Router>
-    </>
+    </MovieProvider>
   );
 }
 
