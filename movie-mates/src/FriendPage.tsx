@@ -62,7 +62,7 @@ for (let i = 0; i < suggestedFriendsData.length; i += friendsPerRow) {
             className="bg-green w-[230px] h-[40px] rounded-2xl ml-2 p-2 outline-none"
           />
         </div>
-        <div className="flex justify-center mt-12 mb-5">
+        <div className="flex justify-center mt-12 mb-5 font-bold text-[24px]">
           <h1>My Friends</h1>
         </div>
         <div className="flex justify-between ml-12 mr-12">
@@ -70,7 +70,7 @@ for (let i = 0; i < suggestedFriendsData.length; i += friendsPerRow) {
             <Friend key={index} picture={friend.picture} name={friend.name} />
           ))}
         </div>
-        <div className="flex justify-center mt-12 mb-7">
+        <div className="flex justify-center mt-12 mb-7 text-[24px]">
           <h1>Suggested Friends</h1>
         </div>
         <div>
