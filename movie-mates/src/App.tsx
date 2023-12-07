@@ -11,15 +11,18 @@ import ShowtimesPage from "./components/ShowtimesPage";
 import TicketsConfirmation from "./pages/TicketsConfirmation";
 import Payment from "./pages/PaymentScreen";
 import PaymentSucceed from "./pages/PaymentSucceed";
+import MyFriends from "./FriendPage";
 
 const App: React.FC = () => {
 
   return (
     <>
-    <Router>
+  
+   <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/FriendPage" element={<MyFriends/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/movie/:title" element={<SelectedMovie/>}/>
@@ -29,7 +32,7 @@ const App: React.FC = () => {
         <Route path="/movie/:title/payment" element={<Payment/>}/>
         <Route path="/movie/:title/paymentsucceed" element={<PaymentSucceed/>}/>
       </Routes>
-    </Router>
+  </Router>
     </>
   );
 }
