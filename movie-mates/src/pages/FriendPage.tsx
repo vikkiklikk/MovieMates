@@ -55,41 +55,41 @@ for (let i = 0; i < suggestedFriendsData.length; i += friendsPerRow) {
 
   return (
     <div>
-      <div className="mt-7 ml-7">
-        <FaArrowLeft size={24} onClick={handleBackClick} />
-      </div>
-      <div>
-        <div className="flex items-center justify-center mt-7 text-[12px]">
-          <IoIosSearch size={24} />
-          <input
-            type="text"
-            placeholder="Looking for someone special?"
-            className="bg-green w-[230px] h-[40px] rounded-2xl ml-2 p-2 outline-none"
-          />
+      <div className="pb-16">
+        <div className="mt-7 ml-7">
+          <FaArrowLeft size={24} onClick={handleBackClick} />
         </div>
-        <div className="flex justify-center mt-12 mb-5 font-bold text-[24px]">
-          <h1>My Friends</h1>
+          <div>
+            <div className="flex items-center justify-center mt-7 text-[12px]">
+              <IoIosSearch size={24} />
+              <input
+                type="text"
+                placeholder="Looking for someone special?"
+                className="bg-green w-[230px] h-[40px] rounded-2xl ml-2 p-2 outline-none"
+              />
+            </div>
+            <div className="flex justify-center mt-12 mb-5 font-bold text-[24px]">
+              <h1>My Friends</h1>
+            </div>
+            <div className="flex justify-between ml-12 mr-12">
+              {friendsData.map((friend, index) => (
+                <Friend key={index} picture={friend.picture} name={friend.name} />
+              ))}
+            </div>
+            <div className="flex justify-center mt-12 mb-7 text-[24px]">
+              <h1>Suggested Friends</h1>
+            </div>
+            <div>
+              {suggestedFriendsRows.map((row, rowIndex) => (
+                <div key={rowIndex} className="flex justify-between ml-9 mr-9 mt-7">
+                {row.map((friend, index) => (
+                  <Friend key={index} picture={friend.picture} name={friend.name} />
+                ))}
+                </div>
+              ))}
+            </div>
+          </div>                      
         </div>
-        <div className="flex justify-between ml-12 mr-12">
-          {friendsData.map((friend, index) => (
-            <Friend key={index} picture={friend.picture} name={friend.name} />
-          ))}
-        </div>
-        <div className="flex justify-center mt-12 mb-7 text-[24px]">
-          <h1>Suggested Friends</h1>
-        </div>
-        <div>
-    {/* Other content */}
-    {suggestedFriendsRows.map((row, rowIndex) => (
-      <div key={rowIndex} className="flex justify-between ml-9 mr-9 mt-7">
-        {row.map((friend, index) => (
-          <Friend key={index} picture={friend.picture} name={friend.name} />
-        ))}
-      </div>
-    ))}
-    {/* Other content */}
-  </div>
-      </div>
       <Footer />
     </div>
   );
