@@ -37,10 +37,9 @@ const TicketsConfirmation: React.FC = () => {
         navigate(-1);
     };
     //navigation for "Confirm" button
-    const goToPayment = () => {
+    const goToProfile = () => {
         if (movie && movie.title) {
-            navigate (`/movie/${movie.title}/payment`);
-        } else { //the case where no movie is found
+            navigate (`/profile`);
         }
     };
     
@@ -115,7 +114,7 @@ const TicketsConfirmation: React.FC = () => {
             </div>
             <div className='mt-4 pt-4'>
               {buttons.map((button)=>{
-                return <BigButton key={button.title} title={button.title} onClick={goToPayment}></BigButton>})}
+                return <BigButton key={button.title} title={button.title} onClick={goToProfile}></BigButton>})}
             </div>
           </div>
           <Footer/>
