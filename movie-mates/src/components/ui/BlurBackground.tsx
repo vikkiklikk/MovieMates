@@ -1,5 +1,3 @@
-import React from "react";
-
 const BlurBackground = () => {
   return (
     <div className="absolute w-[390px] h-[844px] -z-10">
