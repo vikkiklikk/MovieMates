@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 function DropDown() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState("");
 
-  const options = ['Val 1', 'Val 2', 'Val 3'];
+  const options = ["Val 1", "Val 2", "Val 3"];
 
   return (
     <div>
@@ -14,7 +14,7 @@ function DropDown() {
           name="velja"
           id="velja"
           className={`w-[320px] h-[47px] rounded-xl bg-dropDown ${
-            isExpanded ? 'bg-white py-1' : ''
+            isExpanded ? "bg-white py-1" : ""
           }`}
           onClick={() => setIsExpanded(!isExpanded)}
           onChange={(e) => setSelectedValue(e.target.value)}

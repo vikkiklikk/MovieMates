@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { useState, useEffect } from "react";
 
 interface Slide {
   url: string;
