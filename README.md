@@ -9,3 +9,5 @@ being shown in theaters. Friends can pick a movie to suggest for the next group 
 the cinema.
 
 Project was made with Vite, React and stylized with tailwind.
+
+ATTENTION: Please view the site in mobile size. The site was tailored for screens with 390px width and 844px length.
