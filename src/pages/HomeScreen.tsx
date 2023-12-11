@@ -1,6 +1,6 @@
 // I need to add footer and do the carousel
 import MovieCard from "../components/ui/MovieCard";
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import { fetchMovieData } from "../api/api-tmdb";
 import { Movie } from "../types";
 import { IoIosSearch } from "react-icons/io";

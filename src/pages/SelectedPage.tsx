@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchMovieData } from '../api/api-tmdb';
 import useFavorites from '../hooks/useFavorites';
@@ -76,7 +76,7 @@ const SelectedMovie: React.FC = () => {
         <div className='pb-16'>
             <div className='mt-7 flex justify-between px-7'>
                 <FaArrowLeft size={24} onClick={handleBackClick}/>
-                <button className="relative inline-block" onClick={handleFavoriteClick}>
+                <button className="relative inline-block" onClick={handleFavoriteClick} aria-label='favorite' type='button'>
                     <FaRegStar size={24} className="absolute"/>
                     <FaStar size={24} style={starStyle}/>
                 </button>
