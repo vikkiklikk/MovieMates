@@ -1,4 +1,3 @@
-import React from 'react';
 import UserV from "../assets/User - Viktor.svg";
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';

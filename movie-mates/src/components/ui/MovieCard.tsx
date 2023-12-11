@@ -1,6 +1,5 @@
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import React from "react";
 import { Movie } from "../../types";
 import { Link } from "react-router-dom";
 import useFavorites from "../../hooks/useFavorites";
